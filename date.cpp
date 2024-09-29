@@ -25,12 +25,12 @@ int date(int y1, int m1, int d1, int y2, int m2, int d2)
     date2.tm_year = y2 - 1900;
     date2.tm_mon = m2 - 1;
     date2.tm_mday = d2;
-
+    
     time_t time1 = mktime(&date1);
     time_t time2 = mktime(&date2);
-
+    
     auto diff = chrono::system_clock::from_time_t(time2) -
-                            chrono::system_clock::from_time_t(time1);
-
+        chrono::system_clock::from_time_t(time1);
+    
     return chrono::duration_cast<chrono::hours>(diff).count() / 24;
 }
