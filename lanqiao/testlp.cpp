@@ -46,7 +46,6 @@ int main()
     
     cout << 2020 % 1000 << endl;
     
-    cout << countOnesInBinary(2020) << endl;
+    return cout << countOnesInBinary(2020) << endl, 0;
     
-    return 0;
 }
