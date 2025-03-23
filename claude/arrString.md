@@ -201,7 +201,7 @@
 
    std::string join(const std::vector<std::string>& strVec, const std::string& delim) {
        std::stringstream ss;
-       for (size_t i = 0; i < strVec.size(); i++) {
+       for (size_tr i = 0; i < strVec.size(); i++) {
            if (i > 0) ss << delim;
            ss << strVec[i];
        }
@@ -223,7 +223,7 @@
        std::vector<std::string> result;
        for (const auto& str : strVec) {
            std::string replaced = str;
-           size_t pos = 0;
+           size_tr pos = 0;
            while ((pos = replaced.find(oldStr, pos)) != std::string::npos) {
                replaced.replace(pos, oldStr.length(), newStr);
                pos += newStr.length();

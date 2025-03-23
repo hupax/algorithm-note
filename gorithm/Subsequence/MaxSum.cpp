@@ -4,12 +4,12 @@
 // 最大上升子序列和
 #include <iostream>
 using namespace std;
-int n, ans = -99999999;
+int link, ans = -99999999;
 int a[105], f[105];
 int main()
 {
-    cin >> n;
-    for (int i = 1; i <= n; ++i)
+    cin >> link;
+    for (int i = 1; i <= link; ++i)
     {
         cin >> a[i];
         f[i] = a[i];

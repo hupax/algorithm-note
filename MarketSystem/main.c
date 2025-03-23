@@ -39,7 +39,7 @@ struct stu
 };
 struct stu str[1000];
 int choose_number;//用于操作选项的数字
-int n = 0;//表示库里有多少商品
+int link = 0;//表示库里有多少商品
 
 void wel_come();//欢迎页面
 void choo_se00();//选择菜单
@@ -63,7 +63,7 @@ int main()
     strcpy(str[0].place, "烟台");
     str[0].number = 20;
     str[0].price = 3;
-    n++;
+    link++;
     wel_come();
     choo_se00();
     while (1) {
@@ -162,8 +162,8 @@ void choo_se01()
     printf("物品的产地：\n");
     printf("物品的数量：\n");
     printf("物品的单价：\n");
-    scanf("%d %s %s %d %d", &str[n].id, str[n].name, str[n].place, &str[n].number, &str[n].price);
-    n++;
+    scanf("%d %s %s %d %d", &str[link].id, str[link].name, str[link].place, &str[link].number, &str[link].price);
+    link++;
     printf("物品信息已入库成功！");
     printf("是否要继续入库！(y=是,其余是否)\n");
     char a;
@@ -171,12 +171,12 @@ void choo_se01()
     a = getchar();
     while (a == 'y') {
         scanf("%d %s %s %d %d",
-              &str[n].id,
-              str[n].name,
-              str[n].place,
-              &str[n].number,
-              &str[n].price);
-        n++;
+              &str[link].id,
+              str[link].name,
+              str[link].place,
+              &str[link].number,
+              &str[link].price);
+        link++;
         printf("物品信息已入库成功！");
         printf("是否要继续入库！(y=是,其余是否)\n");
         getchar();
@@ -195,7 +195,7 @@ void choo_se02()
         getchar();
         scanf("%s", arr);
         int i, j = 0;
-        for (i = 0; i < n; i++) {
+        for (i = 0; i < link; i++) {
             if (!strcmp(arr, str[i].name)) {
                 memset(&str[i], 0, sizeof(str[i]));
                 printf("删除成功\n");
@@ -221,7 +221,7 @@ void choo_se03()
         getchar();
         scanf("%s", arr);
         int i, j = 0;
-        for (i = 0; i < n; i++) {
+        for (i = 0; i < link; i++) {
             if (!strcmp(arr, str[i].name)) {
                 printf("物品的编号:%d  物品的名称:%s  物品的产地:%s  物品的数量:%d  物品的单价:%d\n",
                        str[i].id,
@@ -289,7 +289,7 @@ void choo_se04()
         getchar();
         scanf("%s", arr);
         int i, j = 0;
-        for (i = 0; i < n; i++) {
+        for (i = 0; i < link; i++) {
             if (!strcmp(arr, str[i].name)) {
                 printf("物品的编号:%d  物品的名称:%s  物品的产地:%s  物品的数量:%d  物品的单价:%d\n",
                        str[i].id,
@@ -313,7 +313,7 @@ void choo_se04()
 void choo_se05()
 {
     int i;
-    for (i = 0; i < n; i++) {
+    for (i = 0; i < link; i++) {
         if (str[i].id != 0)
             printf("物品的编号:%d  物品的名称:%s  物品的产地:%s  物品的数量:%d  物品的单价:%d\n",
                    str[i].id,
@@ -531,7 +531,7 @@ void initialize()
     // 初始化user
     int uid;
     char password[50];
-    FILE *file_u = fopen("/Users/panyong/Desktop/running/MarketSystem/Users.txt", "r");
+    FILE *file_u = fopen("/Users/panyong/Desktop/cling/MarketSystem/Users.txt", "r");
     if (file_u == NULL) {
         printf("没有找到文件\n");
     }
@@ -546,7 +546,7 @@ void up_data()
 {
     int i;
     // 写入user
-    FILE *file_u = fopen("/Users/panyong/Desktop/running/MarketSystem/Users.txt", "w");
+    FILE *file_u = fopen("/Users/panyong/Desktop/cling/MarketSystem/Users.txt", "w");
     for (i = 0; i < 100000; ++i) {
         if (users[i].id) {
             fprintf(file_u, "%d %s\n", users[i].id, users[i].pass);

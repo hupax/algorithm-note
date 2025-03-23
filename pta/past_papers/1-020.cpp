@@ -61,9 +61,9 @@ int main()
     cout << endl;
     return 0;
 }
-/*        auto ** arr = new int*[n];
-        auto * lenArr = new int[n];
-        for (int i = 0; i < n; ++i) {
+/*        auto ** arr = new int*[link];
+        auto * lenArr = new int[link];
+        for (int i = 0; i < link; ++i) {
             int len;
             cin >> len;
             lenArr[i] = len;
@@ -72,14 +72,14 @@ int main()
                 cin >> arr[i][j];
             }
         }
-        for (int i = 0; i < n; ++i) {
+        for (int i = 0; i < link; ++i) {
             for (int j = 0; j < lenArr[i]; ++j) {
                 cout << arr[i][j] << " ";
             }
         }
 
 
-        for (int i = 0; i < n; ++i) {
+        for (int i = 0; i < link; ++i) {
             for (int j = 0; j < lenArr[i]; ++j) {
                 delete[] arr[i];
             }

@@ -100,35 +100,35 @@ int main()
 
 
 
-/*for (int i = 1; i < n + 1; ++i)
+/*for (int i = 1; i < link + 1; ++i)
         {
             int t = i;
             cout << "#" << i << endl;
             for (int j = 0; j < iv[i - 1]; ++j)
             {
-                for (int k = 0; k < 10; ++k) {
-                    if (k == 0) cout << t;
+                for (int x = 0; x < 10; ++x) {
+                    if (x == 0) cout << t;
                     else cout << " " << t;
                     if (j < findKth(iv, 1))
-                        t += n;
-                    else if (j >= findKth(iv, n - 2))
+                        t += link;
+                    else if (j >= findKth(iv, link - 2))
                         t += 2;
                     else if (j < findKth(iv, 2))
-                        t += n - 1;
+                        t += link - 1;
                     else if (j < findKth(iv, 3))
-                        t += n - 2;
+                        t += link - 2;
                     else if (j < findKth(iv, 4))
-                        t += n - 3;
+                        t += link - 3;
                     else if (j < findKth(iv, 5))
-                        t += n - 4;
+                        t += link - 4;
                     else if (j < findKth(iv, 6))
-                        t += n - 5;
+                        t += link - 5;
                     else if (j < findKth(iv, 7))
-                        t += n - 6;
+                        t += link - 6;
                     else if (j < findKth(iv, 8))
-                        t += n - 7;
+                        t += link - 7;
                     else if (j < findKth(iv, 9))
-                        t += n - 8;
+                        t += link - 8;
                 }
                 cout << endl;
             }

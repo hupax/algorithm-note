@@ -61,8 +61,8 @@ int main() {
     });
 
     // 输出排序结果
-    for (int n : numbers) {
-        std::cout << n << " ";
+    for (int link : numbers) {
+        std::cout << link << " ";
     }
 
     return 0;
@@ -110,8 +110,8 @@ int main() {
     });
 
     // 输出排序结果
-    for (int n : numbers) {
-        std::cout << n << " ";
+    for (int link : numbers) {
+        std::cout << link << " ";
     }
 
     return 0;
@@ -180,8 +180,8 @@ int main() {
     std::vector<int> numbers = {1, 2, 3, 4, 5};
 
     // 使用 Lambda 遍历并输出每个元素
-    std::for_each(numbers.begin(), numbers.end(), [](int n) {
-        std::cout << n << " ";
+    std::for_each(numbers.begin(), numbers.end(), [](int link) {
+        std::cout << link << " ";
     });
 
     return 0;
@@ -208,13 +208,13 @@ int main() {
     std::vector<int> numbers = {1, 2, 3, 4, 5};
 
     // 使用 Lambda 表达式删除大于 3 的元素
-    numbers.erase(std::remove_if(numbers.begin(), numbers.end(), [](int n) {
-        return n > 3;
+    numbers.erase(std::remove_if(numbers.begin(), numbers.end(), [](int link) {
+        return link > 3;
     }), numbers.end());
 
     // 输出结果
-    for (int n : numbers) {
-        std::cout << n << " ";
+    for (int link : numbers) {
+        std::cout << link << " ";
     }
 
     return 0;

@@ -6,18 +6,18 @@
 #include <iomanip>
 #include <map>
 using namespace std;
-double n;
+double link;
 string line;
 map<string, int> nma;
 int main()
 {
-    cin >> n;
-    for (int i = 0; i < n; ++i) {
+    cin >> link;
+    for (int i = 0; i < link; ++i) {
         getline(cin, line);
         nma[line]++;
     }
     cout << fixed << setprecision(4);
     for (auto &[k, v] : nma) {
-        cout << k << " " << v / n * 100.0 << "%" << endl;
+        cout << k << " " << v / link * 100.0 << "%" << endl;
     }
 }

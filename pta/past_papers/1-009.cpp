@@ -9,13 +9,13 @@ using namespace std;
 
 int main()
 {
-    int n;
-    while (cin >> n && n > 0)
+    int link;
+    while (cin >> link && link > 0)
     {
         vector<int> fM;
         vector<int> fZ;
         int gBeiS = 0;
-        for (int i = 0; i < n; ++i) {
+        for (int i = 0; i < link; ++i) {
             string line;
             cin >> line;
 
@@ -39,7 +39,7 @@ int main()
             else gBeiS++;
         }
         int fZz = 0;
-        for (int i = 0; i < n; ++i)
+        for (int i = 0; i < link; ++i)
         {
             fZz += fZ[i] * (gBeiS / fM[i]);
         }
@@ -63,12 +63,12 @@ int main()
 #include "bits/stdc++.h"
 
 using namespace std;
-int n, a, b, up, down = 1;
+int link, a, b, up, down = 1;
 char c;
 
 int main() {
-    cin >> n;
-    while (n--) {
+    cin >> link;
+    while (link--) {
         cin >> a >> c >> b;
         up = up * b + a * down;
         cout << up << " " << endl;

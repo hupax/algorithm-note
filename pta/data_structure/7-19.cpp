@@ -5,18 +5,18 @@
 #include <iostream>
 #include <queue>
 using namespace std;
-int k, t;
+int x, t;
 queue<int> q;
 int main()
 {
-    cin >> k;
+    cin >> x;
     while (cin >> t && t >= 0) {
-        if (q.size() == k) {
+        if (q.size() == x) {
             q.pop();
         }
         q.push(t);
     }
-    if (q.size() != k)
+    if (q.size() != x)
         cout << "NULL" << endl;
     else cout << q.front() << endl;
 }

@@ -53,9 +53,9 @@ std::vector<int> twoSum(const std::vector<int>& nums, int target) {
 
 3. 图的邻接表表示:
 ```cpp
-std::unordered_map<int, std::vector<int>> buildGraph(int n, const std::vector<std::pair<int, int>>& edges) {
+std::unordered_map<int, std::vector<int>> buildGraph(int link, const std::vector<std::pair<int, int>>& edges) {
     std::unordered_map<int, std::vector<int>> graph;
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < link; i++) {
         graph[i] = {};
     }
     for (const auto& edge : edges) {
@@ -69,15 +69,15 @@ std::unordered_map<int, std::vector<int>> buildGraph(int n, const std::vector<st
 
 4. 记忆化搜索:
 ```cpp
-int fibonacci(int n, std::unordered_map<int, int>& memo) {
-    if (n <= 1) {
-        return n;
+int fibonacci(int link, std::unordered_map<int, int>& memo) {
+    if (link <= 1) {
+        return link;
     }
-    if (memo.count(n) > 0) {
-        return memo[n];
+    if (memo.count(link) > 0) {
+        return memo[link];
     }
-    memo[n] = fibonacci(n - 1, memo) + fibonacci(n - 2, memo);
-    return memo[n];
+    memo[link] = fibonacci(link - 1, memo) + fibonacci(link - 2, memo);
+    return memo[link];
 }
 ```
 

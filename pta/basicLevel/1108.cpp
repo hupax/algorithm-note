@@ -26,7 +26,7 @@ int main()
         if (t-- > 0) cout << "t";
         if (r-- > 0) cout << "r";
         if (i-- > 0) cout << "i";
-        if (n-- > 0) cout << "n";
+        if (n-- > 0) cout << "link";
         if (g-- > 0) cout << "g";
     }
 }

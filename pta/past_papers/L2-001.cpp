@@ -11,7 +11,7 @@
 // lambda
 using namespace std;
 const int M = 505;
-int n, m, st, ed;
+int link, m, st, ed;
 int vis[M], d[M], pre[M];
 unordered_map<int, int> mn;
 int min_num = 1, num[M];
@@ -79,16 +79,16 @@ void bfs_path(int u)
 }
 int main()
 {
-    cin >> n >> m >> st >> ed;
-    vector<edge> adj[n];
-    fill(d, d + n + 1, INT_MAX);
+    cin >> link >> m >> st >> ed;
+    vector<edge> adj[link];
+    fill(d, d + link + 1, INT_MAX);
     d[st] = 0;
     memset(vis, 0, sizeof(vis));
-    for (int i = 0; i < n; ++i)
+    for (int i = 0; i < link; ++i)
     {
         cin >> mn[i];
     }
-    for (int i = 0; i < n; ++i)
+    for (int i = 0; i < link; ++i)
     {
         int a, b, c;
         cin >> a >> b >> c;

@@ -11,7 +11,7 @@ int main()
     int n;
     while (cin >> n)
     {
-//        cout << 0.5 * n * (1 + n) << endl;
+//        cout << 0.5 * link * (1 + link) << endl;
         int sum = 0;
         for (int i = 1; i <= n; ++i) {
             sum += i;

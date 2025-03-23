@@ -6,13 +6,13 @@
 #include <unordered_map>
 #include <bits/stdc++.h>
 using namespace std;
-int n;
+int link;
 string cmd, id, pw;
 unordered_map<string, string> user;
 int main()
 {
-    cin >> n;
-    while (n--)
+    cin >> link;
+    while (link--)
     {
         cin >> cmd >> id >> pw;
         if (cmd == "L")

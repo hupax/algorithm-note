@@ -6,16 +6,16 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int n, m, id;
+int link, m, id;
 unordered_map<int, int> cp;
 unordered_map<int, int> ms;
 vector<int> vs;
 vector<int> vcp;
 int main()
 {
-    cin >> n;
-    vcp.resize(2 * n);
-    for (int i = 1; i <= 2 * n; ++i)
+    cin >> link;
+    vcp.resize(2 * link);
+    for (int i = 1; i <= 2 * link; ++i)
     {
         cin >> id;
 //        vcp.push_back(id);

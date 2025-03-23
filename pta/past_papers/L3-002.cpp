@@ -3,55 +3,44 @@
 //
 // L3-002 特殊堆栈
 // Created on 2024/04/18.
-#include <bits/stdc++.h>
-#include <stack>
 #include <iostream>
-
+#include <string>
+#include <vector>
+#include <algorithm>
 using namespace std;
-
+int n, x, size_s, sst[100005];
+string o;
+vector<int> vec;
 int main()
 {
-    int n;
-    string line;
-    stack<int> sta;
-    vector<int> ve;
-    cin >> n;
-    getchar();
-    while (n--)
-    {
-        getline(cin, line);
-        if (sta.size() == 0 && (line == "Pop" || line == "PeekMedian"))
-        {
-            cout << "Invalid" << endl;
-            continue;
+    size_s = 0;
+    scanf("%d", &n);
+    for (int i = 0; i < n; i++) {
+        cin >> o;
+        char c = o[1];
+        if (c == 'o') {
+            if (!size_s) {
+                cout << "Invalid" << endl;
+                continue;
+            }
+            cout << sst[size_s] << endl;
+            vec.erase(find(vec.begin(), vec.end(), sst[size_s--]));
         }
-        if (line == "Pop")
-        {
-            cout << sta.top() << endl;
-            for (auto i = ve.begin(); i != ve.end() ; ++i)
-                if (*i == sta.top())
-                {
-                    ve.erase(i);
-                    break;
-                }
-            sta.pop();
-            continue;
+        else if (c == 'u') {
+            cin >> x;
+            vec.insert(lower_bound(vec.begin(), vec.end(), x), x);
+            sst[size_s + 1] = x;
+            size_s++;
         }
-        if (line.substr(0, 4) == "Push")
-        {
-            int key = stoi(line.substr(5));
-            sta.push(key);
-            ve.push_back(key);
-            continue;
+        else {
+            if (!size_s) {
+                cout << "Invalid" << endl;
+                continue;
+            }
+            int pe = (size_s & 1) ? (size_s + 1) / 2 : size_s / 2;
+            cout << vec[pe - 1] << endl;
         }
-        if (line == "PeekMedian")
-        {
-            sort(ve.begin(), ve.end());
-            int len = ve.size();
-            if (len % 2 == 0) len /= 2;
-            else len = (len + 1) / 2;
-            cout << ve[len - 1] << endl;
-        }
-
+        
     }
+    return 0;
 }

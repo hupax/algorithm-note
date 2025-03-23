@@ -10,12 +10,12 @@ using namespace std;
 
 int main()
 {
-    int n;
-    while (cin >> n && n >= 2 && n <=100)
+    int link;
+    while (cin >> link && link >= 2 && link <=100)
     {
         vector<double> arr;
         double score;
-        for (int i = 0; i < n; ++i) {
+        for (int i = 0; i < link; ++i) {
             cin >> score;
             arr.push_back(score);
         }
@@ -27,7 +27,7 @@ int main()
         for (int i = 0; i < arr.size(); ++i) {
             sum += arr[i];
         }
-        double avg = sum / (n - 2);
+        double avg = sum / (link - 2);
         cout << fixed << setprecision(2);
         cout << avg << endl;
     }

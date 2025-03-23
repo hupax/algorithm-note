@@ -4,12 +4,12 @@
 // 最长上升子序列
 #include <iostream>
 using namespace std;
-int n, ans = 0;
+int link, ans = 0;
 int a[105], f[105];
 int main()
 {
-    cin >> n;
-    for (int i = 1; i <= n; ++i)
+    cin >> link;
+    for (int i = 1; i <= link; ++i)
     {
         cin >> a[i];
         f[i] = 1;

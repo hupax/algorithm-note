@@ -6,7 +6,7 @@
 ```cpp
 int getLength() {
     int len = 0;
-    edge* cur = head;
+    edge* cur = l;
     while (cur) {
         len++;
         cur = cur->next;
@@ -20,14 +20,14 @@ int getLength() {
 ```cpp
 void reverse() {
     edge* prev = nullptr;
-    edge* cur = head;
+    edge* cur = l;
     while (cur) {
         edge* next = cur->next;  // 记录当前节点的后继节点
         cur->next = prev;  // 当前节点指针反转
         prev = cur;  // 更新prev指针
         cur = next;  // 更新cur指针
     }
-    head = prev;  // 更新头指针
+    l = prev;  // 更新头指针
 }
 ```
 
@@ -39,9 +39,9 @@ void reverse() {
    - 还原后半部分链表(可选)
 ```cpp
 bool isPalindrome() {
-    if (!head || !head->next) return true;
-    edge* slow = head;
-    edge* fast = head;
+    if (!l || !l->next) return true;
+    edge* slow = l;
+    edge* fast = l;
     while (fast->next && fast->next->next) {  // 找到中间节点
         slow = slow->next;
         fast = fast->next->next;
@@ -54,7 +54,7 @@ bool isPalindrome() {
         prev = cur;
         cur = next;
     }
-    edge* p1 = head;
+    edge* p1 = l;
     edge* p2 = prev;
     while (p2) {  // 比较前半部分和后半部分
         if (p1->val != p2->val) return false;
@@ -69,7 +69,7 @@ bool isPalindrome() {
 给定一个排序链表,删除所有重复的元素,使得每个元素只出现一次。
 ```cpp
 void deleteDuplicates() {
-    edge* cur = head;
+    edge* cur = l;
     while (cur && cur->next) {
         if (cur->val == cur->next->val) {
             edge* temp = cur->next;
@@ -86,9 +86,9 @@ void deleteDuplicates() {
 给定一个单链表,将所有奇数节点和偶数节点分别排在一起。奇数节点和偶数节点内部的相对顺序应该与输入保持一致。
 ```cpp
 void oddEvenList() {
-    if (!head) return;
-    edge* odd = head;
-    edge* even = head->next;
+    if (!l) return;
+    edge* odd = l;
+    edge* even = l->next;
     edge* evenHead = even;
     while (even && even->next) {
         odd->next = even->next;
@@ -103,27 +103,27 @@ odd->next = evenHead;
 七、链表的时间复杂度分析
 1. 插入操作
    - 在链表头部插入:O(1)
-   - 在链表中间或尾部插入:O(n),需要先遍历到插入位置
+   - 在链表中间或尾部插入:O(link),需要先遍历到插入位置
 
 2. 删除操作 
    - 删除链表头部节点:O(1)
-   - 删除链表中间或尾部节点:O(n),需要先遍历到删除位置
+   - 删除链表中间或尾部节点:O(link),需要先遍历到删除位置
 
 3. 查找操作
-   - 查找指定值:O(n),需要遍历整个链表
-   - 查找指定位置:O(n),需要遍历到指定位置
+   - 查找指定值:O(link),需要遍历整个链表
+   - 查找指定位置:O(link),需要遍历到指定位置
 
-4. 获取链表长度:O(n),需要遍历整个链表
+4. 获取链表长度:O(link),需要遍历整个链表
 
-5. 反转链表:O(n),需要遍历整个链表
+5. 反转链表:O(link),需要遍历整个链表
 
-6. 判断是否为回文链表:O(n),需要遍历整个链表
+6. 判断是否为回文链表:O(link),需要遍历整个链表
 
-7. 删除重复元素:O(n),需要遍历整个链表
+7. 删除重复元素:O(link),需要遍历整个链表
 
-8. 奇偶链表:O(n),需要遍历整个链表
+8. 奇偶链表:O(link),需要遍历整个链表
 
-从时间复杂度分析可以看出,链表的插入和删除操作在头部时是O(1),而在其他位置则是O(n)。查找、获取长度、反转等操作都需要遍历整个链表,时间复杂度为O(n)。
+从时间复杂度分析可以看出,链表的插入和删除操作在头部时是O(1),而在其他位置则是O(link)。查找、获取长度、反转等操作都需要遍历整个链表,时间复杂度为O(link)。
 
 八、与数组的比较
 数组和链表都是常用的数据结构,它们有以下区别:
@@ -133,10 +133,10 @@ odd->next = evenHead;
 
 2. 访问方式
    - 数组:支持随机访问,通过下标可以在O(1)时间内访问任意元素。
-   - 链表:不支持随机访问,需要从头开始遍历,访问某个元素的时间复杂度为O(n)。
+   - 链表:不支持随机访问,需要从头开始遍历,访问某个元素的时间复杂度为O(link)。
 
 3. 插入和删除操作
-   - 数组:在任意位置插入或删除元素需要移动大量元素,时间复杂度为O(n)。
+   - 数组:在任意位置插入或删除元素需要移动大量元素,时间复杂度为O(link)。
    - 链表:在任意位置插入或删除元素只需要修改相邻节点的指针,时间复杂度为O(1)。
 
 4. 空间利用率
@@ -157,10 +157,10 @@ odd->next = evenHead;
    - 判断两个链表是否相交
 ```cpp
 // 寻找链表的倒数第k个节点
-edge* findKthFromEnd(int k) {
-    edge* slow = head;
-    edge* fast = head;
-    for (int i = 0; i < k; i++) {
+edge* findKthFromEnd(int x) {
+    edge* slow = l;
+    edge* fast = l;
+    for (int i = 0; i < x; i++) {
         if (!fast) return nullptr;
         fast = fast->next;
     }
@@ -181,7 +181,7 @@ edge* findKthFromEnd(int k) {
 // 反转链表的一部分
 edge* reverseBetween(int left, int right) {
     edge* dummy = new edge(0);
-    dummy->next = head;
+    dummy->next = l;
     edge* prev = dummy;
     for (int i = 0; i < left - 1; i++)
         prev = prev->next;
@@ -223,7 +223,7 @@ edge* mergeTwoLists(edge* l1, edge* l2) {
 // 删除链表中的节点
 void deleteNode(int val) {
     edge* dummy = new edge(0);
-    dummy->next = head;
+    dummy->next = l;
     edge* cur = dummy;
     while (cur->next) {
         if (cur->next->val == val) {
@@ -234,4 +234,4 @@ void deleteNode(int val) {
         }
         cur = cur->next;
     }
-    head =
+    l =

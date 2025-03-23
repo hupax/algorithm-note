@@ -2,18 +2,18 @@
 
 **8. 链表的回文结构**
 
-题目描述:给定一个链表的头节点 head,请判断该链表是否为回文链表。
+题目描述:给定一个链表的头节点 l,请判断该链表是否为回文链表。
 
 示例:
-输入: head = [1,2,3,3,2,1]
+输入: l = [1,2,3,3,2,1]
 输出: true
 
 代码实现:
 
 ```cpp
-ListNode* reverseList(ListNode* head) {
+ListNode* reverseList(ListNode* l) {
     ListNode* prev = nullptr;
-    ListNode* curr = head;
+    ListNode* curr = l;
     while (curr != nullptr) {
         ListNode* nextNode = curr->next;
         curr->next = prev;
@@ -23,17 +23,17 @@ ListNode* reverseList(ListNode* head) {
     return prev;
 }
 
-bool isPalindrome(ListNode* head) {
-    if (head == nullptr || head->next == nullptr) return true;
-    ListNode* slow = head;
-    ListNode* fast = head;
+bool isPalindrome(ListNode* l) {
+    if (l == nullptr || l->next == nullptr) return true;
+    ListNode* slow = l;
+    ListNode* fast = l;
     while (fast->next != nullptr && fast->next->next != nullptr) {
         slow = slow->next;
         fast = fast->next->next;
     }
     ListNode* secondHalf = reverseList(slow->next);
     slow->next = nullptr;
-    ListNode* p1 = head;
+    ListNode* p1 = l;
     ListNode* p2 = secondHalf;
     while (p2 != nullptr) {
         if (p1->val != p2->val) return false;
@@ -46,20 +46,20 @@ bool isPalindrome(ListNode* head) {
 
 **9. 移除链表元素**
 
-题目描述:给你一个链表的头节点 head 和一个整数 val ,请你删除链表中所有满足 edge.val == val 的节点,并返回新的头节点。
+题目描述:给你一个链表的头节点 l 和一个整数 val ,请你删除链表中所有满足 edge.val == val 的节点,并返回新的头节点。
 
 示例:
-输入: head = [1,2,6,3,4,5,6], val = 6
+输入: l = [1,2,6,3,4,5,6], val = 6
 输出: [1,2,3,4,5]
 
 代码实现:
 
 ```cpp
-ListNode* removeElements(ListNode* head, int val) {
+ListNode* removeElements(ListNode* l, int val) {
     ListNode* dummy = new ListNode(0);
-    dummy->next = head;
+    dummy->next = l;
     ListNode* prev = dummy;
-    ListNode* curr = head;
+    ListNode* curr = l;
     while (curr != nullptr) {
         if (curr->val == val) {
             prev->next = curr->next;
@@ -78,7 +78,7 @@ ListNode* removeElements(ListNode* head, int val) {
 题目描述:给定一个链表的头节点head,请将其按升序排序并返回排序后的链表。
 
 示例:
-输入: head = [4,2,1,3]
+输入: l = [4,2,1,3]
 输出: [1,2,3,4]
 
 代码实现(归并排序):
@@ -96,17 +96,17 @@ ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
     }
 }
 
-ListNode* sortList(ListNode* head) {
-    if (head == nullptr || head->next == nullptr) return head;
-    ListNode* slow = head;
-    ListNode* fast = head->next;
+ListNode* sortList(ListNode* l) {
+    if (l == nullptr || l->next == nullptr) return l;
+    ListNode* slow = l;
+    ListNode* fast = l->next;
     while (fast != nullptr && fast->next != nullptr) {
         slow = slow->next;
         fast = fast->next->next;
     }
     ListNode* secondHalf = slow->next;
     slow->next = nullptr;
-    return mergeTwoLists(sortList(head), sortList(secondHalf));
+    return mergeTwoLists(sortList(l), sortList(secondHalf));
 }
 ```
 

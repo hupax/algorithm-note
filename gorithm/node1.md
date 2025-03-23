@@ -25,11 +25,11 @@ struct ListNode {
 
 ```cpp
 // 创建头节点
-ListNode* head = new ListNode(1);
+ListNode* l = new ListNode(1);
 // 创建第二个节点
 ListNode* second = new ListNode(2);
 // 将第二个节点链接到头节点
-head->next = second;
+l->next = second;
 // 创建第三个节点
 ListNode* third = new ListNode(3);
 // 将第三个节点链接到第二个节点
@@ -69,7 +69,7 @@ second->next = third;
 
   ```cpp
   // 迭代遍历链表
-  ListNode* cur = head;
+  ListNode* cur = l;
   while (cur != NULL) {
       // 访问当前节点
       cout << cur->val << " ";
@@ -109,10 +109,10 @@ second->next = third;
 
 ```cpp
 // 在头部插入节点
-void insertAtHead(ListNode*& head, int val) {
+void insertAtHead(ListNode*& l, int val) {
     ListNode* newNode = new ListNode(val);
-    newNode->next = head;
-    head = newNode;
+    newNode->next = l;
+    l = newNode;
 }
 
 // 在中间插入节点
@@ -127,10 +127,10 @@ void insertAtMiddle(ListNode* prev, int val) {
 
 ```cpp
 // 删除头节点
-void deleteHead(ListNode*& head) {
-    if (head == NULL) return;
-    ListNode* temp = head;
-    head = head->next;
+void deleteHead(ListNode*& l) {
+    if (l == NULL) return;
+    ListNode* temp = l;
+    l = l->next;
     delete temp;
 }
 
@@ -147,9 +147,9 @@ void deleteMiddle(ListNode* prev) {
 
 ```cpp
 // 迭代反转链表
-ListNode* reverseList(ListNode* head) {
+ListNode* reverseList(ListNode* l) {
     ListNode* prev = NULL;
-    ListNode* curr = head;
+    ListNode* curr = l;
     while (curr != NULL) {
         ListNode* nextNode = curr->next;
         curr->next = prev;
@@ -160,11 +160,11 @@ ListNode* reverseList(ListNode* head) {
 }
 
 // 递归反转链表
-ListNode* reverseListRecursive(ListNode* head) {
-    if (head == NULL || head->next == NULL) return head;
-    ListNode* newHead = reverseListRecursive(head->next);
-    head->next->next = head;
-    head->next = NULL;
+ListNode* reverseListRecursive(ListNode* l) {
+    if (l == NULL || l->next == NULL) return l;
+    ListNode* newHead = reverseListRecursive(l->next);
+    l->next->next = l;
+    l->next = NULL;
     return newHead;
 }
 ```

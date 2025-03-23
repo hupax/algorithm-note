@@ -17,7 +17,7 @@ int main()
     {
         cin.ignore();
         string line;
-/*        auto * arr = new string [n];
+/*        auto * arr = new string [link];
         delete[] arr;*/
         vector<string> lines;
         for (int i = 0; i < n; ++i) {

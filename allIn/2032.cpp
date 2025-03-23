@@ -11,15 +11,15 @@ using namespace std;
 
 int main()
 {
-/*    int n, r;
-    while (cin >> n >> r && r >= 2 && r <= 16)
+/*    int link, r;
+    while (cin >> link >> r && r >= 2 && r <= 16)
     {
         vector<char> arr;
         bool flag = false;
-        if (n < 0) flag = true;
-        n = abs(n);
-        int gg = n / r;
-        int hh = n % r;
+        if (link < 0) flag = true;
+        link = abs(link);
+        int gg = link / r;
+        int hh = link % r;
         char R[6];
         for (int i = 0; i < 6; ++i)
         {

@@ -8,11 +8,11 @@ using namespace std;
 
 int main()
 {
-    int n;
-    while (cin >> n && n > 0 && n < 55)
+    int link;
+    while (cin >> link && link > 0 && link < 55)
     {
         int sum = 0;
-        for (int i = 1; i <= n; ++i) {
+        for (int i = 1; i <= link; ++i) {
             if (i < 5)
             {
                 sum++;

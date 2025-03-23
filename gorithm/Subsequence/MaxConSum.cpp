@@ -4,11 +4,11 @@
 // 最大连续子段和
 #include <iostream>
 using namespace std;
-int n, f[105], a[105], ans = -99999999;
+int link, f[105], a[105], ans = -99999999;
 int main()
 {
-    cin >> n;
-    for (int i = 1; i <= n; ++i)
+    cin >> link;
+    for (int i = 1; i <= link; ++i)
     {
         cin >> a[i];
         f[i] = max(a[i], f[i - 1] + a[i]);

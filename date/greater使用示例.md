@@ -122,7 +122,7 @@ int main() {
 #include <queue>
 #include <vector>
 
-int findKthLargest(std::vector<int>& nums, int k) {
+int findKthLargest(std::vector<int>& nums, int x) {
     // 创建一个大顶堆
     std::priority_queue<int, std::vector<int>, std::greater<int>> min_heap;
 
@@ -130,20 +130,20 @@ int findKthLargest(std::vector<int>& nums, int k) {
     for (int num : nums) {
         min_heap.push(num);
 
-        // 如果堆的大小超过 k,则弹出堆顶元素(当前最小的元素)
-        if (min_heap.size() > k) {
+        // 如果堆的大小超过 x,则弹出堆顶元素(当前最小的元素)
+        if (min_heap.size() > x) {
             min_heap.pop();
         }
     }
 
-    // 返回堆顶元素,即第 k 大的元素
+    // 返回堆顶元素,即第 x 大的元素
     return min_heap.top();
 }
 
 int main() {
     std::vector<int> nums = {3, 2, 1, 5, 6, 4};
-    int k = 2;
-    std::cout << "The " << k << "th largest element is: " << findKthLargest(nums, k) << std::endl;
+    int x = 2;
+    std::cout << "The " << x << "th largest element is: " << findKthLargest(nums, x) << std::endl;
     return 0;
 }
 ```

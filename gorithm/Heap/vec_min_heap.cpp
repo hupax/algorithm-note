@@ -6,15 +6,15 @@
 #include <vector>
 using namespace std;
 
-int n, m, x;
+int link, m, x;
 void heapify(vector<int> &heap, int i)
 {
     int smallest = i;
     int left = 2 * i;
     int right = left + 1;
-    if (left <= n && heap[left] < heap[smallest])
+    if (left <= link && heap[left] < heap[smallest])
         smallest = left;
-    if (right <= n && heap[right] < heap[smallest])
+    if (right <= link && heap[right] < heap[smallest])
         smallest = right;
     if (smallest != i)
     {
@@ -24,17 +24,17 @@ void heapify(vector<int> &heap, int i)
 }
 int main()
 {
-    cin >> n >> m;
-    vector<int> heap(n + 1);
-    vector<int> vis(n + 2);
-    for (int i = 1; i <= n; ++i)
+    cin >> link >> m;
+    vector<int> heap(link + 1);
+    vector<int> vis(link + 2);
+    for (int i = 1; i <= link; ++i)
     {
         cin >> heap[i];
         vis[i + 1] = heap[i];
     }
-    for (int i = n / 2; i >= 1; --i)
+    for (int i = link / 2; i >= 1; --i)
         heapify(heap, i);
-    swap(heap[n], heap[n - 1]);
+    swap(heap[link], heap[link - 1]);
 //    for (auto &i : heap) cout << i << " ";
     cout << endl;
     while (m--)

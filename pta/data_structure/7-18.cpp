@@ -8,11 +8,11 @@
 using namespace std;
 queue<int> aq;
 queue<int> bq;
-int n, m;
+int link, m;
 int main()
 {
-    cin >> n;
-    for (int i = 0; i < n; ++i) {
+    cin >> link;
+    for (int i = 0; i < link; ++i) {
         cin >> m;
         if (m & 1) aq.push(m);
         else bq.push(m);

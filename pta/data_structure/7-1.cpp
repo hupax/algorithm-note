@@ -5,12 +5,12 @@
 #include <iostream>
 using namespace std;
 const int M = 1e5;
-int n, a[M], f[M], ans;
+int link, a[M], f[M], ans;
 bool flag = 1;
 int main()
 {
-    cin >> n;
-    for (int i = 1; i <= n; ++i)
+    cin >> link;
+    for (int i = 1; i <= link; ++i)
     {
         cin >> a[i];
         f[i] = max(a[i], f[i - 1] + a[i]);

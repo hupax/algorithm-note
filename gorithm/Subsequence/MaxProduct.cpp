@@ -4,14 +4,14 @@
 // 最大连续子段积
 #include <iostream>
 using namespace std;
-int n, a[105], f[105], d[105], ans;
+int link, a[105], f[105], d[105], ans;
 int main()
 {
-    cin >> n;
+    cin >> link;
 //    cin >> a[1];
 //    f[1] = d[1] = ans = a[1];
 //    cout << f[1] << " ";
-    for (int i = 1; i <= n; ++i)
+    for (int i = 1; i <= link; ++i)
     {
         cin >> a[i];
         for (int j = 1; j <= i; ++j)

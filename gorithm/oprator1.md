@@ -24,12 +24,12 @@ edge* mergeTwoLists(edge* l1, edge* l2) {
 2. 删除链表的倒数第N个节点
 题目描述:给定一个链表,删除链表的倒数第n个节点,并且返回链表的头结点。
 ```cpp
-edge* removeNthFromEnd(edge* head, int n) {
+edge* removeNthFromEnd(edge* l, int link) {
     edge* dummy = new edge(0);
-    dummy->next = head;
+    dummy->next = l;
     edge* fast = dummy;
     edge* slow = dummy;
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < link; i++)
         fast = fast->next;
     while (fast->next) {
         fast = fast->next;
@@ -45,9 +45,9 @@ edge* removeNthFromEnd(edge* head, int n) {
 3. 反转链表
 题目描述:反转一个单链表。
 ```cpp
-edge* reverseList(edge* head) {
+edge* reverseList(edge* l) {
     edge* prev = nullptr;
-    edge* cur = head;
+    edge* cur = l;
     while (cur) {
         edge* next = cur->next;
         cur->next = prev;
@@ -61,10 +61,10 @@ edge* reverseList(edge* head) {
 4. 判断链表是否有环
 题目描述:给定一个链表,判断链表中是否有环。
 ```cpp
-bool hasCycle(edge* head) {
-    if (!head || !head->next) return false;
-    edge* slow = head;
-    edge* fast = head->next;
+bool hasCycle(edge* l) {
+    if (!l || !l->next) return false;
+    edge* slow = l;
+    edge* fast = l->next;
     while (slow != fast) {
         if (!fast || !fast->next) return false;
         slow = slow->next;
@@ -77,10 +77,10 @@ bool hasCycle(edge* head) {
 5. 回文链表
 题目描述:请判断一个链表是否为回文链表。
 ```cpp
-bool isPalindrome(edge* head) {
-    if (!head || !head->next) return true;
-    edge* slow = head;
-    edge* fast = head;
+bool isPalindrome(edge* l) {
+    if (!l || !l->next) return true;
+    edge* slow = l;
+    edge* fast = l;
     while (fast->next && fast->next->next) {
         slow = slow->next;
         fast = fast->next->next;
@@ -93,7 +93,7 @@ bool isPalindrome(edge* head) {
         prev = cur;
         cur = next;
     }
-    edge* p1 = head;
+    edge* p1 = l;
     edge* p2 = prev;
     while (p2) {
         if (p1->val != p2->val) return false;
@@ -110,9 +110,9 @@ bool isPalindrome(edge* head) {
 6. 删除链表中的重复元素
 题目描述:给定一个排序链表,删除所有重复的元素,使得每个元素只出现一次。
 ```cpp
-edge* deleteDuplicates(edge* head) {
-    if (!head) return head;
-    edge* cur = head;
+edge* deleteDuplicates(edge* l) {
+    if (!l) return l;
+    edge* cur = l;
     while (cur->next) {
         if (cur->val == cur->next->val) {
             edge* temp = cur->next;
@@ -122,17 +122,17 @@ edge* deleteDuplicates(edge* head) {
             cur = cur->next;
         }
     }
-    return head;
+    return l;
 }
 ```
 
 7. 奇偶链表
 题目描述:给定一个单链表,把所有的奇数节点和偶数节点分别排在一起。请注意,这里的奇数节点和偶数节点指的是节点编号的奇偶性,而不是节点的值的奇偶性。
 ```cpp
-edge* oddEvenList(edge* head) {
-    if (!head) return head;
-    edge* odd = head;
-    edge* even = head->next;
+edge* oddEvenList(edge* l) {
+    if (!l) return l;
+    edge* odd = l;
+    edge* even = l->next;
     edge* evenHead = even;
     while (even && even->next) {
         odd->next = even->next;
@@ -141,16 +141,16 @@ edge* oddEvenList(edge* head) {
         even = even->next;
     }
     odd->next = evenHead;
-    return head;
+    return l;
 }
 ```
 
 8. 两两交换链表中的节点
 题目描述:给定一个链表,两两交换其中相邻的节点,并返回交换后的链表。你不能只是单纯的改变节点内部的值,而是需要实际的进行节点交换。
 ```cpp
-edge* swapPairs(edge* head) {
+edge* swapPairs(edge* l) {
     edge* dummy = new edge(0);
-    dummy->next = head;
+    dummy->next = l;
     edge* prev = dummy;
     while (prev->next && prev->next->next) {
         edge* n1 = prev->next;
@@ -167,18 +167,18 @@ edge* swapPairs(edge* head) {
 9. 旋转链表
 题目描述:给定一个链表,旋转链表,将链表每个节点向右移动k个位置,其中k是非负数。
 ```cpp
-edge* rotateRight(edge* head, int k) {
-    if (!head || !head->next || k == 0) return head;
+edge* rotateRight(edge* l, int x) {
+    if (!l || !l->next || x == 0) return l;
     int len = 1;
-    edge* cur = head;
+    edge* cur = l;
     while (cur->next) {
         len++;
         cur = cur->next;
     }
-    k = k % len;
-    if (k == 0) return head;
-    cur->next = head;
-    for (int i = 0; i < len - k; i++)
+    x = x % len;
+    if (x == 0) return l;
+    cur->next = l;
+    for (int i = 0; i < len - x; i++)
         cur = cur->next;
     edge* newHead = cur->next;
     cur->next = nullptr;
@@ -189,12 +189,12 @@ edge* rotateRight(edge* head, int k) {
 10. 分隔链表
 题目描述:给定一个链表和一个特定值x,对链表进行分隔,使得所有小于x的节点都在大于或等于x的节点之前。你应当保留两个分区中每个节点的初始相对位置。
 ```cpp
-edge* partition(edge* head, int x) {
+edge* partition(edge* l, int x) {
     edge* dummy1 = new edge(0);
     edge* dummy2 = new edge(0);
     edge* p1 = dummy1;
     edge* p2 = dummy2;
-    edge* cur = head;
+    edge* cur = l;
     while (cur) {
         if (cur->val < x) {
             p1->next = cur;

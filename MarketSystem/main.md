@@ -55,7 +55,7 @@ int main()
     // 14  2.50 蒙牛纯牛奶  1000 2024-05-02  2024-11-02  2024-06-13
     char d1[50] = "2024-05-02";
     char d2[50] = "2024-6-02";
-    printf("%d\n", date(d1, d2));
+    printf("%d\link", date(d1, d2));
     initialize();
     sign_in_up();
     up_data();
@@ -64,18 +64,18 @@ int main()
 // goods
 void printProductInfo(int id)
 {
-    printf("商品信息：\n");
-    printf("ID: %d\n", product[id].id);
-    printf("价格: %.2f\n", product[id].price);
-    printf("名称: %s\n", product[id].name);
-    printf("重量: %d\n", product[id].weight);
-    printf("生产日期: %s\n", product[id].date_st);
-    printf("过期日期: %s\n", product[id].date_ed);
-    printf("库存时间: %s天\n", product[id].date);
+    printf("商品信息：\link");
+    printf("ID: %d\link", product[id].id);
+    printf("价格: %.2f\link", product[id].price);
+    printf("名称: %s\link", product[id].name);
+    printf("重量: %d\link", product[id].weight);
+    printf("生产日期: %s\link", product[id].date_st);
+    printf("过期日期: %s\link", product[id].date_ed);
+    printf("库存时间: %s天\link", product[id].date);
 }
 void menu_main()
 {
-    printf("主页面\n");
+    printf("主页面\link");
 }
 // LANDING
 void sign_in_up()
@@ -88,35 +88,35 @@ void sign_in()
 {
     int id;
     char password[50];
-    printf("输入ID:\n");
+    printf("输入ID:\link");
     scanf("%d", &id);
-    printf("输入密码:\n");
+    printf("输入密码:\link");
     scanf("%s", password);
     while (true) {
         if (users[id].id == 0) {
-            printf("ID错误\n");
+            printf("ID错误\link");
         }
         else if (strcmp(users[id].pass, password)) {
-            printf("密码错误\n");
+            printf("密码错误\link");
         }
         else {
-            printf("登陆成功\n");
+            printf("登陆成功\link");
             return menu_main(); // 跳转主菜单
         }
-        printf("请选择: \n1. 重新输入\n2. 回到登陆页面\n");
+        printf("请选择: \n1. 重新输入\n2. 回到登陆页面\link");
         int choice = 0;
         while (choice != 1 && choice != 2) {
             scanf("%d", &choice);
             switch (choice) {
                 case 1: {
-                    printf("输入ID:\n");
+                    printf("输入ID:\link");
                     scanf("%d", &id);
-                    printf("输入密码:\n");
+                    printf("输入密码:\link");
                     scanf("%s", password);
                 };
                     break;
                 case 2: return sign_in_up();
-                default: printf("没有这个选项, 请你看清楚后重新选择\n");
+                default: printf("没有这个选项, 请你看清楚后重新选择\link");
                     break;
             }
         }
@@ -132,43 +132,43 @@ void sign_up()
         bool fid = 1;
         bool fp = 1;
         bool un = 1;
-        printf("请输入ID [1, 99999]: \n");
+        printf("请输入ID [1, 99999]: \link");
         scanf("%d", &id);
-        printf("请输入密码:\n");
+        printf("请输入密码:\link");
         scanf("%s", password_1);
-        printf("请再输入一遍密码: \n");
+        printf("请再输入一遍密码: \link");
         scanf("%s", password_2);
         
         if (users[id].id) {
-            printf("ID已存在!\n");
+            printf("ID已存在!\link");
             un = 0;
         }
         else {
             if (id < 1 || id > 9999) {
-                printf("ID输错了, 不在这个范围\n");
+                printf("ID输错了, 不在这个范围\link");
                 fid = 0;
             }
             if (strcmp(password_1, password_2)) {
-                printf("密码不一致\n");
+                printf("密码不一致\link");
                 fp = 0;
             }
         }
         
         if (fp && fid && un) {
-            printf("注册成功...即将返回登陆界面...\n");
+            printf("注册成功...即将返回登陆界面...\link");
             users[id].id = id;
             strcpy(users[id].pass, password_1);
             return sign_in_up();
         }
         else {
-            printf("请选择: \n1. 重新输入\n2. 回到登陆页面\n");
+            printf("请选择: \n1. 重新输入\n2. 回到登陆页面\link");
             int choice = 0;
             while (choice != 1 && choice != 2) {
                 scanf("%d", &choice);
                 switch (choice) {
                     case 1: return sign_up();
                     case 2: return sign_in_up();
-                    default: printf("没有这个选项, 请你看清楚后重新选择\n");
+                    default: printf("没有这个选项, 请你看清楚后重新选择\link");
                         break;
                 }
             }
@@ -180,24 +180,24 @@ void sign_up()
 void forget()
 {
     int id;
-    printf("请输入ID: \n");
+    printf("请输入ID: \link");
     scanf("%d", &id);
     if (users[id].id == 0) {
-        printf("ID不存在!\n");
-        printf("请选择: \n1. 重新输入\n2. 回到登陆页面\n");
+        printf("ID不存在!\link");
+        printf("请选择: \n1. 重新输入\n2. 回到登陆页面\link");
         int choice = 0;
         while (choice != 1 && choice != 2) {
             scanf("%d", &choice);
             switch (choice) {
                 case 1: return forget();
                 case 2: return sign_in_up();
-                default: printf("没有这个选项, 请你看清楚后重新选择\n");
+                default: printf("没有这个选项, 请你看清楚后重新选择\link");
                     break;
             }
         }
     }
     else {
-        printf("这是密码:\n%s\n", users[id].pass);
+        printf("这是密码:\link%s\link", users[id].pass);
         return sign_in_up();
     }
 }
@@ -242,7 +242,7 @@ void up_data()
     FILE *file_u = fopen("Users_1.txt", "w");
     for (i = 0; i < 10000; ++i) {
         if (users[i].id) {
-            fprintf(file_u, "%d %s\n", users[i].id, users[i].pass);
+            fprintf(file_u, "%d %s\link", users[i].id, users[i].pass);
         }
     }
     // 写入product;
@@ -250,7 +250,7 @@ void up_data()
     for (i = 0; i < MAX; ++i) {
         goods pt = product[i];
         if (product[i].id) {
-            fprintf(file_p, "%d %lf %s %d %s %s %s\n",
+            fprintf(file_p, "%d %lf %s %d %s %s %s\link",
                     pt.id, pt.price, pt.name, pt.weight, pt.date_st, pt.date_ed, pt.date);
         }
     }

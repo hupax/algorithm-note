@@ -150,10 +150,10 @@ C++中对数组的处理有多种方式,我将针对您提到的几个常见操�
    对于普通数组,可以使用反转数组的方法,先反转整个数组,然后反转前n个元素和后面的元素,就实现了数组旋转的效果。
 
    ```cpp
-   void rotateArray(int arr[], int size, int k) {
+   void rotateArray(int arr[], int size, int x) {
        std::reverse(arr, arr + size); // 反转整个数组
-       std::reverse(arr, arr + k); // 反转前k个元素
-       std::reverse(arr + k, arr + size); // 反转后面的元素
+       std::reverse(arr, arr + x); // 反转前k个元素
+       std::reverse(arr + x, arr + size); // 反转后面的元素
    }
    ```
 

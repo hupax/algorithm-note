@@ -4,8 +4,8 @@
 
 ```cpp
 // 查找给定值的节点
-ListNode* findNode(ListNode* head, int val) {
-    ListNode* curr = head;
+ListNode* findNode(ListNode* l, int val) {
+    ListNode* curr = l;
     while (curr != NULL) {
         if (curr->val == val) {
             return curr;
@@ -20,9 +20,9 @@ ListNode* findNode(ListNode* head, int val) {
 
 ```cpp
 // 计算链表长度
-int getLength(ListNode* head) {
+int getLength(ListNode* l) {
     int len = 0;
-    ListNode* curr = head;
+    ListNode* curr = l;
     while (curr != NULL) {
         len++;
         curr = curr->next;
@@ -37,9 +37,9 @@ int getLength(ListNode* head) {
 
 ```cpp
 // 检测链表中是否有环
-bool hasCycle(ListNode* head) {
-    ListNode* slow = head;
-    ListNode* fast = head;
+bool hasCycle(ListNode* l) {
+    ListNode* slow = l;
+    ListNode* fast = l;
     while (fast != NULL && fast->next != NULL) {
         slow = slow->next;
         fast = fast->next->next;
@@ -57,9 +57,9 @@ bool hasCycle(ListNode* head) {
 
 ```cpp
 // 寻找链表的中间节点
-ListNode* findMiddleNode(ListNode* head) {
-    ListNode* slow = head;
-    ListNode* fast = head;
+ListNode* findMiddleNode(ListNode* l) {
+    ListNode* slow = l;
+    ListNode* fast = l;
     while (fast != NULL && fast->next != NULL) {
         slow = slow->next;
         fast = fast->next->next;
@@ -74,17 +74,17 @@ ListNode* findMiddleNode(ListNode* head) {
 
 ```cpp
 // 递归从尾到头打印链表
-void printListReversed(ListNode* head) {
-    if (head == NULL) return;
-    printListReversed(head->next);
-    cout << head->val << " ";
+void printListReversed(ListNode* l) {
+    if (l == NULL) return;
+    printListReversed(l->next);
+    cout << l->val << " ";
 }
 
 // 使用栈从尾到头打印链表
-vector<int> printListReversed(ListNode* head) {
+vector<int> printListReversed(ListNode* l) {
     vector<int> result;
     stack<ListNode*> st;
-    ListNode* curr = head;
+    ListNode* curr = l;
     while (curr != NULL) {
         st.push(curr);
         curr = curr->next;
@@ -103,17 +103,17 @@ vector<int> printListReversed(ListNode* head) {
 
 ```cpp
 // 归并排序链表
-ListNode* sortList(ListNode* head) {
-    if (head == NULL || head->next == NULL) return head;
-    ListNode* slow = head;
-    ListNode* fast = head->next;
+ListNode* sortList(ListNode* l) {
+    if (l == NULL || l->next == NULL) return l;
+    ListNode* slow = l;
+    ListNode* fast = l->next;
     while (fast != NULL && fast->next != NULL) {
         slow = slow->next;
         fast = fast->next->next;
     }
     ListNode* secondHalf = slow->next;
     slow->next = NULL;
-    ListNode* left = sortList(head);
+    ListNode* left = sortList(l);
     ListNode* right = sortList(secondHalf);
     return mergeTwoLists(left, right);
 }
@@ -144,12 +144,12 @@ ListNode* getIntersectionNode(ListNode* headA, ListNode* headB) {
 删除链表中的重复节点,只保留不重复的节点。
 
 ```cpp
-ListNode* removeDuplicateNodes(ListNode* head) {
-    if (head == NULL || head->next == NULL) return head;
+ListNode* removeDuplicateNodes(ListNode* l) {
+    if (l == NULL || l->next == NULL) return l;
     unordered_set<int> visited;
-    visited.insert(head->val);
-    ListNode* prev = head;
-    ListNode* curr = head->next;
+    visited.insert(l->val);
+    ListNode* prev = l;
+    ListNode* curr = l->next;
     while (curr != NULL) {
         if (visited.count(curr->val)) {
             prev->next = curr->next;
@@ -161,7 +161,7 @@ ListNode* removeDuplicateNodes(ListNode* head) {
             curr = curr->next;
         }
     }
-    return head;
+    return l;
 }
 ```
 
@@ -171,11 +171,11 @@ ListNode* removeDuplicateNodes(ListNode* head) {
 
 ```cpp
 // 使用哈希表复制链表
-ListNode* copyListWithHash(ListNode* head) {
+ListNode* copyListWithHash(ListNode* l) {
     unordered_map<ListNode*, ListNode*> nodeMap;
     ListNode* dummy = new ListNode(0);
     ListNode* newHead = dummy;
-    ListNode* curr = head;
+    ListNode* curr = l;
     while (curr != NULL) {
         ListNode* newNode = new ListNode(curr->val);
         nodeMap[curr] = newNode;
@@ -183,7 +183,7 @@ ListNode* copyListWithHash(ListNode* head) {
         newHead = newHead->next;
         curr = curr->next;
     }
-    curr = head;
+    curr = l;
     newHead = dummy->next;
     while (curr != NULL) {
         if (curr->next) {
@@ -215,17 +215,17 @@ ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
     }
 }
 
-ListNode* sortList(ListNode* head) {
-    if (head == NULL || head->next == NULL) return head;
-    ListNode* slow = head;
-    ListNode* fast = head->next;
+ListNode* sortList(ListNode* l) {
+    if (l == NULL || l->next == NULL) return l;
+    ListNode* slow = l;
+    ListNode* fast = l->next;
     while (fast != NULL && fast->next != NULL) {
         slow = slow->next;
         fast = fast->next->next;
     }
     ListNode* secondHalf = slow->next;
     slow->next = NULL;
-    return mergeTwoLists(sortList(head), sortList(secondHalf));
+    return mergeTwoLists(sortList(l), sortList(secondHalf));
 }
 ```
 

@@ -21,7 +21,7 @@
    `std::stoi()` 函数的原型如下:
 
    ```cpp
-   int stoi(const std::string& str, std::size_t* pos = 0, int base = 10);
+   int stoi(const std::string& str, std::size_tr* pos = 0, int base = 10);
    ```
 
     - `str`: 要转换的字符串。

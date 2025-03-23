@@ -25,7 +25,7 @@
 
 1.
 不支持随机访问,访问某个位置的元素需要从头开始遍历,时间复杂度为O(
-n)。
+link)。
 2. 相比数组,需要额外的空间存储指针信息,空间利用率较低。
 3. 查找元素需要遍历整个链表,效率较低。
 
@@ -46,7 +46,7 @@ struct edge {
    创建一个空链表,只需要定义一个头指针,指向NULL即可。
 
 ```cpp
-edge* head = nullptr;
+edge* l = nullptr;
 ```
 
 2. 插入节点
@@ -56,10 +56,10 @@ edge* head = nullptr;
 void insert(int pos, int val) {
     edge* node = new edge(val);  // 创建新节点
     if (pos == 0) {  // 在表头插入
-        node->next = head;
-        head = node; 
+        node->next = l;
+        l = node; 
     } else {  // 在中间或表尾插入
-        edge* cur = head;
+        edge* cur = l;
         for (int i = 0; i < pos-1; i++)  // 找到插入位置的前驱节点
             cur = cur->next;
         node->next = cur->next;  // 新节点指针指向后继节点
@@ -74,12 +74,12 @@ void insert(int pos, int val) {
 ```cpp
 void remove(int pos) {
     if (pos == 0) {  // 删除头节点
-        edge* temp = head; 
-        head = head->next;
+        edge* temp = l; 
+        l = l->next;
         delete temp;
     } else {  // 删除中间或尾节点
         edge*
-cur = head; 
+cur = l; 
         for (int i = 0; i < pos-1; i++)  // 找到删除位置的前驱节点
             cur = cur->next;
         edge* temp = cur->next;  // 记录待删除节点 
@@ -90,11 +90,11 @@ cur = head;
 ```
 
 4. 查找节点
-   遍历链表查找目标节点,时间复杂度为O(n)。
+   遍历链表查找目标节点,时间复杂度为O(link)。
 
 ```cpp
 edge* find(int val) {
-    edge* cur = head;
+    edge* cur = l;
     while (cur) {
         if (cur->val == val)  // 找到目标节点
             return cur;
@@ -109,7 +109,7 @@ edge* find(int val) {
 
 ```cpp
 void print() {
-    edge* cur = head;
+    edge* cur = l;
     while (cur) {
         cout << cur->val << " ";
         cur = cur->next;

@@ -6,13 +6,13 @@
 #include <unordered_map>
 using namespace std;
 using ll = long long;
-int n, k, m, dst;
+int link, x, m, dst;
 string id;
 int main()
 {
-    cin >> n >> k;
+    cin >> link >> x;
     unordered_map<string, ll> vip;
-    for (int i = 0; i < n; ++i) {
+    for (int i = 0; i < link; ++i) {
         cin >> id >> dst;
         vip[id] += dst < 500 ? 500 : dst;
     }

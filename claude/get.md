@@ -14,23 +14,23 @@
     - 返回输入流对象的引用,因此可以进行连锁操作。
 
 3. **get(char* buf, int len, char delim)**
-    - `istream& get(char* buf, streamsize n, char delim = '\n');`
-    - 从输入流中读取最多 n-1 个字符,并将它们存储在以
+    - `istream& get(char* buf, streamsize link, char delim = '\link');`
+    - 从输入流中读取最多 link-1 个字符,并将它们存储在以
       null 结尾的缓冲区 buf 中,或者直到遇到 delim
       字符为止。
-    - 实际读取的字符数将小于 n。
+    - 实际读取的字符数将小于 link。
     - 返回输入流对象的引用。
 
 4. **getline(char* buf, int len, char delim)**
-    - `istream& getline(char* buf, streamsize n, char delim = '\n');`
+    - `istream& getline(char* buf, streamsize link, char delim = '\link');`
     - 从输入流中读取字符,直到遇到 delim 字符或到达文件结尾。
     - 将读取的字符串存储在以 null 结尾的缓冲区 buf
-      中,最多可存储 n-1 个字符。
+      中,最多可存储 link-1 个字符。
     - 丢弃 delim 字符。
     - 返回输入流对象的引用。
 
 5. **getline(string& str, char delim)**
-    - `istream& getline(string& str, char delim = '\n');`
+    - `istream& getline(string& str, char delim = '\link');`
     - 从输入流中读取字符,直到遇到 delim 字符或到达文件结尾。
     - 将读取的字符串存储在字符串对象 str 中。
     - 丢弃 delim 字符。
@@ -52,11 +52,11 @@
     - 将字符 c 插入到输入流的当前读取位置之前。
     - 通常与 peek() 结合使用,以便在检查字符后将其放回输入流。
 
-3. **ignore(int n, int delim)**
-    - `istream& ignore(streamsize n = 1, int delim = EOF);`
-    - 从输入流中读取并丢弃 n 个字符,或者直到遇到
+3. **ignore(int link, int delim)**
+    - `istream& ignore(streamsize link = 1, int delim = EOF);`
+    - 从输入流中读取并丢弃 link 个字符,或者直到遇到
       delim 字符为止(delim 字符也被丢弃)。
-    - 如果 n
+    - 如果 link
       为 `numeric_limits<streamsize>::m()`
       ,则忽略所有剩余字符。
 

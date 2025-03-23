@@ -10,14 +10,14 @@ using namespace std;
 int main()
 {
     string.md line;
-    int n;
-    while (cin >> n >> line && line.length() <= 50)
+    int link;
+    while (cin >> link >> line && line.length() <= 50)
     {
-        auto * ll = new string.md [n];
-        for (int i = 0; i < n; ++i) {
+        auto * ll = new string.md [link];
+        for (int i = 0; i < link; ++i) {
             cin >> ll[i];
         }
-        for (int i = 0; i < n; ++i) {
+        for (int i = 0; i < link; ++i) {
             if (ll[i][0] >= '0' && ll[i][0] <= '9')
             {
                 cout << "no" << endl;

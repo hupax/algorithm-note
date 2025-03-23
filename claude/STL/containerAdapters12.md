@@ -75,11 +75,11 @@
    
    using namespace std;
    
-   int findKthLargest(vector<int>& nums, int k) {
+   int findKthLargest(vector<int>& nums, int x) {
        priority_queue<int, vector<int>, greater<int>> pq;
        for (int num : nums) {
            pq.push(num);
-           if (pq.size() > k) {
+           if (pq.size() > x) {
                pq.pop();
            }
        }
@@ -88,8 +88,8 @@
    
    int main() {
        vector<int> nums = {3, 2, 1, 5, 6, 4};
-       int k = 2;
-       cout << "The " << k << "th largest element is: " << findKthLargest(nums, k) << endl;
+       int x = 2;
+       cout << "The " << x << "th largest element is: " << findKthLargest(nums, x) << endl;
        return 0;
    }
    ```
@@ -104,7 +104,7 @@
 4. **deque (双端队列)**:
    例题: 实现一个滑动窗口最大值
    问题描述: 给定一个数组 nums 和滑动窗口的大小
-   k,找出所有滑动窗口里的最大值。
+   x,找出所有滑动窗口里的最大值。
    解决方案:
    ```cpp
    #include <iostream>
@@ -113,7 +113,7 @@
    
    using namespace std;
    
-   vector<int> maxSlidingWindow(vector<int>& nums, int k) {
+   vector<int> maxSlidingWindow(vector<int>& nums, int x) {
        deque<int> dq;
        vector<int> result;
        for (int i = 0; i < nums.size(); i++) {
@@ -123,11 +123,11 @@
            }
            dq.push_back(i);
            // 如果队头元素已经不在滑动窗口内,删除队头元素
-           if (dq.front() == i - k) {
+           if (dq.front() == i - x) {
                dq.pop_front();
            }
-           // 当窗口大小达到 k 时,将队头元素加入结果
-           if (i >= k - 1) {
+           // 当窗口大小达到 x 时,将队头元素加入结果
+           if (i >= x - 1) {
                result.push_back(nums[dq.front()]);
            }
        }
@@ -136,8 +136,8 @@
    
    int main() {
        vector<int> nums = {1, 3, -1, -3, 5, 3, 6, 7};
-       int k = 3;
-       vector<int> result = maxSlidingWindow(nums, k);
+       int x = 3;
+       vector<int> result = maxSlidingWindow(nums, x);
        for (int num : result) {
            cout << num << " ";
        }

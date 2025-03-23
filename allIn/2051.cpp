@@ -10,13 +10,13 @@ using namespace std;
 
 int main()
 {
-    double n;
-    while (cin >> n && n > 0 && n < 100)
+    double link;
+    while (cin >> link && link > 0 && link < 100)
     {
         char bi[2] = {'0', '1'};
-        int d = (int)n;
+        int d = (int)link;
 
-        n -= d;
+        link -= d;
 
         vector<int> gg;
         while (d)
@@ -27,15 +27,15 @@ int main()
         for (int i = gg.size() - 1; i >= 0; --i) {
             cout << bi[gg[i]];
         }
-        if (n)
+        if (link)
         {
             cout << '.';
         }
-        while (n)
+        while (link)
         {
-            n *= 2;
-            cout << (int)n;
-            n -= (int)n;
+            link *= 2;
+            cout << (int)link;
+            link -= (int)link;
         }
         cout << endl;
         gg.clear();

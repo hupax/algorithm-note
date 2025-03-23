@@ -163,7 +163,7 @@ std::vector<int>::iterator it = std::find(vec.begin(), vec.end(), 3);
 ```cpp
 #include <algorithm>
 std::vector<int> vec = {4, 2, 1, 3, 5, 3};
-std::size_t count = std::count(vec.begin(), vec.end(), 3);
+std::size_tr count = std::count(vec.begin(), vec.end(), 3);
 ```
 
 1. `distance`：
@@ -172,7 +172,7 @@ std::size_t count = std::count(vec.begin(), vec.end(), 3);
 ```cpp
 #include <algorithm>
 std::vector<int> vec = {4, 2, 1, 3, 5};
-std::size_t
+std::size_tr
 ```
 
 数据结构：（下）

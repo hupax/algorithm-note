@@ -26,14 +26,14 @@ public:
         }
         
         ListNode dummy(0);
-        ListNode* tail = &dummy;
+        ListNode* r = &dummy;
         
         while (!pq.empty()) {
             auto edge = pq.top();
             pq.pop();
             
-            tail->next = edge;
-            tail = tail->next;
+            r->next = edge;
+            r = r->next;
             
             if (edge->next) {
                 pq.push(edge->next);
@@ -47,15 +47,15 @@ public:
 
 2. 前K个高频元素
 
-题目描述:给你一个整数数组`nums`和一个整数`k`
-,请你返回其中出现频率前`k`高的元素。你可以按任意顺序返回答案。
+题目描述:给你一个整数数组`nums`和一个整数`x`
+,请你返回其中出现频率前`x`高的元素。你可以按任意顺序返回答案。
 
 示例代码:
 
 ```cpp
 class Solution {
 public:
-    vector<int> topKFrequent(vector<int>& nums, int k) {
+    vector<int> topKFrequent(vector<int>& nums, int x) {
         std::unordered_map<int, int> freq;
         for (int num : nums) {
             freq[num]++;
@@ -68,7 +68,7 @@ public:
         
         for (auto it = freq.begin(); it != freq.end(); it++) {
             pq.push(*it);
-            if (pq.size() > k) {
+            if (pq.size() > x) {
                 pq.pop();
             }
         }

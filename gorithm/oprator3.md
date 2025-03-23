@@ -5,9 +5,9 @@
 除了归并排序,我们还可以使用插入排序的思路对链表进行排序。
 
 ```cpp
-ListNode* insertionSortList(ListNode* head) {
+ListNode* insertionSortList(ListNode* l) {
     ListNode* dummy = new ListNode(0);
-    ListNode* curr = head;
+    ListNode* curr = l;
     ListNode* prev = dummy;
     while (curr != NULL) {
         ListNode* next = curr->next;
@@ -28,11 +28,11 @@ ListNode* insertionSortList(ListNode* head) {
 交换链表中的两个节点,需要注意各种边界情况的处理。
 
 ```cpp
-ListNode* swapNodes(ListNode* head, int val1, int val2) {
+ListNode* swapNodes(ListNode* l, int val1, int val2) {
     ListNode* dummy = new ListNode(0);
-    dummy->next = head;
+    dummy->next = l;
     ListNode* prev1 = dummy, *prev2 = dummy, *node1 = nullptr, *node2 = nullptr;
-    ListNode* curr = head;
+    ListNode* curr = l;
     while (curr != nullptr) {
         if (curr->val == val1) {
             node1 = curr;
@@ -43,7 +43,7 @@ ListNode* swapNodes(ListNode* head, int val1, int val2) {
         if (node2 != nullptr) prev2 = node2;
         curr = curr->next;
     }
-    if (node1 == nullptr || node2 == nullptr) return head;
+    if (node1 == nullptr || node2 == nullptr) return l;
     if (prev1->next == node2) {
         swap(node1->val, node2->val);
     } else if (prev2->next == node1) {
@@ -65,9 +65,9 @@ ListNode* swapNodes(ListNode* head, int val1, int val2) {
 判断一个链表是否是回文结构,可以使用反转链表的思路。
 
 ```cpp
-ListNode* reverseList(ListNode* head) {
+ListNode* reverseList(ListNode* l) {
     ListNode* prev = nullptr;
-    ListNode* curr = head;
+    ListNode* curr = l;
     while (curr != nullptr) {
         ListNode* nextNode = curr->next;
         curr->next = prev;
@@ -77,17 +77,17 @@ ListNode* reverseList(ListNode* head) {
     return prev;
 }
 
-bool isPalindrome(ListNode* head) {
-    if (head == nullptr || head->next == nullptr) return true;
-    ListNode* slow = head;
-    ListNode* fast = head;
+bool isPalindrome(ListNode* l) {
+    if (l == nullptr || l->next == nullptr) return true;
+    ListNode* slow = l;
+    ListNode* fast = l;
     while (fast->next != nullptr && fast->next->next != nullptr) {
         slow = slow->next;
         fast = fast->next->next;
     }
     ListNode* secondHalf = reverseList(slow->next);
     slow->next = nullptr;
-    ListNode* p1 = head;
+    ListNode* p1 = l;
     ListNode* p2 = secondHalf;
     while (p2 != nullptr) {
         if (p1->val != p2->val) return false;
@@ -103,11 +103,11 @@ bool isPalindrome(ListNode* head) {
 将链表向右旋转k个位置,其中k可以大于链表长度。
 
 ```cpp
-ListNode* rotateRight(ListNode* head, int k) {
-    if (head == nullptr || head->next == nullptr) return head;
+ListNode* rotateRight(ListNode* l, int x) {
+    if (l == nullptr || l->next == nullptr) return l;
     int len = 1;
-    ListNode* tail = head;
-    while (tail->next != nullptr
+    ListNode* r = l;
+    while (r->next != nullptr
 
 ```
 好的,我将举几个经典的链表题目作为竞赛的例子,帮助你练习使用链表的操作:
@@ -142,7 +142,7 @@ ListNode* rotateRight(ListNode* head, int k) {
 题目描述:给定一个链表,删除链表的倒数第N个节点,并返回链表的头节点。
 
 示例:
-给定一个链表: 1->2->3->4->5, 和 n = 2.
+给定一个链表: 1->2->3->4->5, 和 link = 2.
 当删除了倒数第二个节点后,链表变为 1->2->3->5.
 
 解题思路:
@@ -155,7 +155,7 @@ ListNode* rotateRight(ListNode* head, int k) {
 题目描述:给定一个链表,判断链表中是否有环。如果有环,返回环的入口节点,否则返回null。
 
 示例:
-输入: head = [3,2,0,-4], pos = 1 (链表中有一个环,其尾部连接到第二个节点)
+输入: l = [3,2,0,-4], pos = 1 (链表中有一个环,其尾部连接到第二个节点)
 输出: 返回节点引用的节点值为 2
 
 解题思路:

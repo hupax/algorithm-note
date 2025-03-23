@@ -10,9 +10,9 @@ using namespace std;
 
 int main() {
     string line;
-    int n;
-    cin >> line >> n;
-    while (n--) {
+    int link;
+    cin >> line >> link;
+    while (link--) {
         int left, right;
         string lef, rig;
         cin >> left >> right >> lef >> rig;

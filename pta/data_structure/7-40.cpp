@@ -5,7 +5,7 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-int n, m;
+int link, m;
 struct node
 {
   int gold;
@@ -15,9 +15,9 @@ struct node
 void Foo(const vector<node> &ans);
 int main()
 {
-    cin >> n >> m;
-    vector<node> ans(n);
-    for (int i = 0; i < n; ++i) {
+    cin >> link >> m;
+    vector<node> ans(link);
+    for (int i = 0; i < link; ++i) {
         cin >> ans[i].gold >> ans[i].total >> ans[i].man;
     }
     for (int i = 0; i < m; ++i) {

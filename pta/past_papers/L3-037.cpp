@@ -7,7 +7,7 @@
 #include <queue>
 #include <map>
 using namespace std;
-int m, n, k, vis[105][105], a[105][105];
+int m, link, x, vis[105][105], a[105][105];
 int dx[4] = {0, 1, 0, -1};
 int dy[4] = {1, 0, -1, 0};
 int x, y, stx, sty;
@@ -33,7 +33,7 @@ void bfs()
         {
             int vx = tx + dx[i];
             int vy = ty + dy[i];
-            if (vx >= 1 && vx <= m && vy >= 1 && vy <= n && vis[vx][vy] == 0 && a[vx][vy])
+            if (vx >= 1 && vx <= m && vy >= 1 && vy <= link && vis[vx][vy] == 0 && a[vx][vy])
             {
                 vis[vx][vy] = vis[tx][ty] + 1;
                 q.emplace(vx, vy);
@@ -43,10 +43,10 @@ void bfs()
 }
 int main()
 {
-    cin >> m >> n;
+    cin >> m >> link;
     for (int i = 1; i <= m; ++i)
     {
-        for (int j = 1; j <= n; ++j)
+        for (int j = 1; j <= link; ++j)
         {
             cin >> a[i][j];
             if (a[i][j] == 2)
@@ -57,8 +57,8 @@ int main()
         }
     }
 //    cout << x << " " << y << endl;
-    cin >> k;
-    for (int i = 1; i <= k; ++i)
+    cin >> x;
+    for (int i = 1; i <= x; ++i)
     {
         cin >> stx >> sty;
         f[{sty, stx}] = 0;

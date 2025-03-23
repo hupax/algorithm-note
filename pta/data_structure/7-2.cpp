@@ -6,12 +6,12 @@
 #include <bits/stdc++.h>
 #include <vector>
 using namespace std;
-int n, m, x, y, u, w;
+int link, m, x, y, u, w;
 int main()
 {
-    cin >> n;
+    cin >> link;
     unordered_map<int, int> ve;
-    for (auto i = 0; i < n; ++i)
+    for (auto i = 0; i < link; ++i)
     {
         cin >> u >> w;
         ve[w] = u;

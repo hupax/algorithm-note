@@ -20,31 +20,16 @@
 
 using namespace std;
 
-#include <iostream>
-#include <vector>
-
+include<iostream>
+include<string>
 using namespace std;
-
-void dfs(vector<vector<int>> &grid, int x, int y, bool &hasTreasure)
-{
-    if (x < 0 || y < 0 || x >= grid.size() || y >= grid[0].size() || grid[x][y] == 0) {
-        return; // 越界或者是水域，返回
-    }
-    if (grid[x][y] >= 2) {
-        hasTreasure = true; // 发现宝藏
-    }
-    grid[x][y] = 0; // 标记为已访问
-    // 递归访问四个相邻的格子
-    dfs(grid, x + 1, y, hasTreasure);
-    dfs(grid, x - 1, y, hasTreasure);
-    dfs(grid, x, y + 1, hasTreasure);
-    dfs(grid, x, y - 1, hasTreasure);
-}
-
-int main()
-{
-    cout << pow(0.24, 4);
-    return 0;
+string line;
+int main() {
+    cin >> line;
+    cout << "year:" << line.substr(0, 4) << endl;
+    cout << "department:" << line.substr(4, 2) << endl;
+    cout << "class:" << line.substr(6, 4) << endl;
+    
 }
 /*
 6

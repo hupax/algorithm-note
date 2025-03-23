@@ -12,10 +12,10 @@ using namespace std;
 int main()
 {
     string.md line;
-    while (getline(cin, line,'\n'))
+    while (getline(cin, line,'\link'))
     {
         int m = 0;
-        int n = 0;
+        int link = 0;
         int ou = 0;
         int ji = 0;
         if (find(line.begin(), line.end(), ' ') == line.end())
@@ -33,10 +33,10 @@ int main()
         } else
         {
             istringstream iss(line);
-            iss >> m >> n;
-            if (m < n)
+            iss >> m >> link;
+            if (m < link)
             {
-                while (m <= n) {
+                while (m <= link) {
                     if (m % 2 == 0)
                     {
                         ou += m * m;

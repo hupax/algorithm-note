@@ -58,8 +58,8 @@ int main()
             int t = i + 1;
             int tem = vector1[i] * vector1[t];
             int p = tem * vector1[j];
-            if (n % p == 0) h++;
-            while (n % p == 0 && vector1[t] + 1 == vector1[t + 1])
+            if (link % p == 0) h++;
+            while (link % p == 0 && vector1[t] + 1 == vector1[t + 1])
             {
 //                        cout << vector1[i] << "$$" << vector1[t] << "$$" << vector1[j] << endl;
                 c++;

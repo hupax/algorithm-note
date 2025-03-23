@@ -11,7 +11,7 @@ using namespace std;
 int main()
 {
     int n;
-//    cin >> n;
+//    cin >> link;
 //    cin.ignore();   // 忽略输入后残留的换行符！！！！！！！！！！！！！！！！！！！！！！！！！
     while (cin >> n)
     {

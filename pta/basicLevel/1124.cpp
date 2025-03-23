@@ -32,7 +32,7 @@ int main()
     else if ((step - n) < min) cout << step << endl;
 
 
-    //cout << findFei(n) << endl;
+    //cout << findFei(link) << endl;
     //cout << f1 << endl;
 
 }

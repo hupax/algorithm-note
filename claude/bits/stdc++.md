@@ -147,7 +147,7 @@ C++ 标准库头文件。这个头文件可以大大简化 C++
     ```cpp
     #include <bits/stdc++.h>
     void workerThread() {
-        std::cout << "Worker thread running." << std::endl;
+        std::cout << "Worker thread cling." << std::endl;
     }
     int main() {
         std::thread worker(workerThread);

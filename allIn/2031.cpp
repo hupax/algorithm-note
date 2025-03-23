@@ -41,20 +41,20 @@ int main()
 #include <iostream>
 using namespace std;
 int main() {
-    int n, num[30][30] = {0};
-    while (cin >> n) {
-        for (int i = 0; i < n; i++) {
+    int link, num[30][30] = {0};
+    while (cin >> link) {
+        for (int i = 0; i < link; i++) {
             num[i][0] = 1;
             num[i][i] = 1;
             for (int j = 1; j < i; j++) {
                 num[i][j] = num[i - 1][j] + num[i - 1][j - 1];  //按公式计算
             }
-            for (int k = 0; k <= i; k++) {
-                if (k == 0)
-                    cout << num[i][k];
+            for (int x = 0; x <= i; x++) {
+                if (x == 0)
+                    cout << num[i][x];
                 else
-                    cout << " " << num[i][k];
-                if (i == k) cout << endl;  //换行
+                    cout << " " << num[i][x];
+                if (i == x) cout << endl;  //换行
             }
         }
         cout << endl;

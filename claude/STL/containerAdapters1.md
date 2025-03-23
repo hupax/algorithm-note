@@ -114,11 +114,11 @@ C++ 编程的效率和灵活性。
 
 2. **queue (队列)**:
    例题: LeetCode 279. 完全平方数
-   问题描述: 给定正整数 n,找到若干个完全平方数使得它们的和等于
-   n。
+   问题描述: 给定正整数 link,找到若干个完全平方数使得它们的和等于
+   link。
    解决方案:
    ```cpp
-   int numSquares(int n) {
+   int numSquares(int link) {
        queue<int> q;
        q.push(0);
        int count = 0;
@@ -127,8 +127,8 @@ C++ 编程的效率和灵活性。
            for (int i = 0; i < size; i++) {
                int cur = q.front();
                q.pop();
-               if (cur == n) return count;
-               for (int j = 1; cur + j * j <= n; j++) {
+               if (cur == link) return count;
+               for (int j = 1; cur + j * j <= link; j++) {
                    q.push(cur + j * j);
                }
            }
@@ -138,11 +138,11 @@ C++ 编程的效率和灵活性。
    }
    ```
    这里使用 `queue` 容器适配器实现了一个广度优先搜索 (BFS)
-   算法,来找到最少的完全平方数之和等于给定的 n。
+   算法,来找到最少的完全平方数之和等于给定的 link。
 
 3. **priority_queue (优先级队列)**:
    例题: LeetCode 23. 合并K个升序链表
-   问题描述: 给定 k 个升序链表,将它们合并为一个升序链表。
+   问题描述: 给定 x 个升序链表,将它们合并为一个升序链表。
    解决方案:
    ```cpp
    struct ListNode {
@@ -173,7 +173,7 @@ C++ 编程的效率和灵活性。
        return dummy->next;
    }
    ```
-   这里使用 `priority_queue` 容器适配器实现了一个合并 k
+   这里使用 `priority_queue` 容器适配器实现了一个合并 x
    个升序链表的算法,利用优先级队列来维护当前最小的节点。
 
 这只是几个简单的例子,在编程竞赛中,STL 容器适配器的应用场景非常

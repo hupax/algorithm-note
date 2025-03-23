@@ -7,14 +7,14 @@
 #include <unordered_map>
 #include <queue>
 using namespace std;
-int n, level;
+int link, level;
 string cmd, message;
 unordered_map<int, string> ms;
 priority_queue<pair<int, string>, vector<pair<int, string>>, greater<>> q;
 int main()
 {
-    cin >> n;
-    while (n--) {
+    cin >> link;
+    while (link--) {
         cin >> cmd;
         if (cmd == "PUT") {
             cin >> message >> level;
