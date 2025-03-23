@@ -8,5 +8,4 @@ void f(int *a) {
 }
 int main() {
     int b = 3;
-    cout << "hello";
 }
