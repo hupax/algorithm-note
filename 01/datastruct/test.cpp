@@ -8,5 +8,5 @@ void f(int *a) {
 }
 int main() {
     int b = 3;
-    dp(&b);
+    cout << "hello";
 }
