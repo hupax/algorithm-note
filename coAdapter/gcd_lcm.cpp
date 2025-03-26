@@ -9,11 +9,13 @@
 
 using namespace std;
 
-int gcd(int a, int b)
-{
-    return b == 0 ? a : gcd(b, a % b);
+//int gcd(int a, int b)
+//{
+//    return b == 0 ? a : gcd(b, a % b);
+//}
+inline int gcd(int a, int b) {
+    return !b?a:(b, a%b);
 }
-
 int main()
 {
     int a, b;
@@ -24,9 +26,7 @@ int main()
     int l = static_cast<long long>(a) * b / gcd(a, b);
     cout << "LCM: " << l << endl;
 }
-/*是的,在你给出的代码中,`gcd` 函数是一个递归函数。它使用了递归的方式来计算两个数的最大公约数。
-
-让我们仔细看一下 `gcd` 函数的定义:
+/*
 
 ```cpp
 int gcd(int a, int b) {

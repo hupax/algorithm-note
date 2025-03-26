@@ -1,7 +1,7 @@
 #include <iostream>
 #include <bitset>
 using namespace std;
-const int maxn = 3e6+5;
+const int N = 3e6+5;
 int n, ans[maxn], num[maxn], s[maxn], p = 0;
 const int BUF_SIZE = 1 << 20;
 char ibuf[BUF_SIZE], * p1 = ibuf, * p2 = ibuf;
@@ -39,11 +39,8 @@ int main() {
 //    read(n);
 //    cout << n;
 //    cout << flush;
-    char c = '9';
-    int a = c^48;
-    write(a);
-    char b=a^48;
-    cout << b;
+    string s="asdghjl";
+    cout << s.find("sd")<<s.substr(0, 3);
 
     return 0;
 }
