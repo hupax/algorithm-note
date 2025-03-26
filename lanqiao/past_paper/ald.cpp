@@ -1,7 +1,7 @@
 //
 // Created by supanx on 25-3-20.
 //
-// 从2001年1月1日到2021年12月31日
+// 从2001年1月1日到2021年12月31日 之间 数位和为完全平方数
 #include <iostream>
 #include <cmath>
 using namespace std;
