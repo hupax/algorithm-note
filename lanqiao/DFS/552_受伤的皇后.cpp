@@ -4,26 +4,32 @@
 #include <iostream>
 using namespace std;
 const int N=15;
-int n, a[N][N], ans;
-int row[N], col[N], dig1[N], dig2[N];
-void dfs(int x, int cnt) { // 搜索x行可以放的位置
-    if (x==n) {
-        if (cnt==n) ans++;
+int n, ans=0;
+int col[N], pos[N]; // pos[i]=x 表示第i行皇后放在x列上
+void dfs(int x) { // 搜索x行可以放的位置
+    if (x==n+1) {
+        ans++;
         return;
     }
     for (int i=1; i<=n; i++) { // 遍历每一列
         if (col[i]) continue;
-        if ((x-dig1[x+i]<3 || x-dig2[x-i+n]<3)) continue; // 在同一个对角线
-        dig1[x+i]=dig2[x-i+n]=x;
+        // 检查前两行
+        int f=0;
+        for (int k=1; k<3; k++) {
+            if (x-k>0 && abs(pos[x-k]-i) == k) f=1; // 第一行不用检查
+            // pos[x-k]上面第k行皇后的位置, 列差
+        }
+        if (f) continue;
         col[i]=1;
-        dfs(x+1, cnt+1);
-        dig1[x+1]=dig2[x-i+n]=col[i]=0;
+        pos[x]=i;
+        dfs(x+1);
+        col[i]=0;
     }
     
 }
 int main() {
     cin>>n;
-    dfs(1, 0);
+    dfs(1);
     cout<<ans;
     
     return 0;
