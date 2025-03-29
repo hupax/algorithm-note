@@ -1,36 +1,53 @@
 #include <iostream>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
-const int N=15;
-int n, ans;
-bool vis[N]; // 记录列是否被占用
-int pos[N];  // pos[i] 表示第 i 行的皇后放在 pos[i] 列
+typedef long long ll;
 
-void dfs(int i) {
-    if (i == n) {
-        ans++;
-        return;
-    }
-    for (int j=0; j < n; ++j) { // 枚举行 i 放在哪一列
-        if (vis[j]) continue; // 列冲突
-        // 检查和前两行的对角线限制
-        bool ok=true;
-        for (int k=1; k <= 2; ++k) {
-            if (i-k >= 0) {
-                if (abs(pos[i-k]-j) == k) {
-                    ok=false;
-                    break;
-                }
-            }
-        }
-        if (!ok) continue;
-        vis[j]=true;
-        pos[i]=j;
-        dfs(i+1);
-        vis[j]=false;
-    }
-}
-int a[5]={-1};
+struct Student {
+  int enter_time;    // s_i
+  int question_time; // q_i
+  int exit_time;     // e_i
+  
+  // 计算总处理时间(不包括离开时间，因为离开时下一个学生可以进入)
+  int process_time() const {
+      return enter_time+question_time;
+  }
+};
+
 int main() {
-    for (int &i:a) cout << i;
+    int n;
+    cin >> n;
+    
+    vector<Student> students(n);
+    for (int i=0; i < n; i++) {
+        cin >> students[i].enter_time >> students[i].question_time >> students[i].exit_time;
+    }
+    
+    // 按总处理时间(s_i + q_i)排序
+    sort(students.begin(), students.end(), [](const Student &a, const Student &b) {
+      return a.process_time() < b.process_time();
+    });
+    
+    ll current_time=0;
+    ll total_message_time=0;
+    
+    for (int i=0; i < n; i++) {
+        // 学生进入办公室
+        current_time+=students[i].enter_time;
+        
+        // 学生问问题老师解答
+        current_time+=students[i].question_time;
+        
+        // 学生在这个时刻发消息
+        total_message_time+=current_time;
+        
+        // 学生离开办公室
+        current_time+=students[i].exit_time;
+    }
+    
+    cout << total_message_time << endl;
+    
+    return 0;
 }
