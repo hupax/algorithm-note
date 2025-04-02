@@ -8,6 +8,7 @@
 #define gc getchar_unlocked()
 using namespace std;
 const int N=2e3+5;
+
 char a[N], b[N];
 /*
  * dp[i][j]: A:1...i --> B:1...j 最少操作次数
