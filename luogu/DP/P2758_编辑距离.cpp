@@ -13,6 +13,7 @@ char a[N], b[N];
 /*
  * dp[i][j]: A:1...i --> B:1...j 最少操作次数
  * init: dp[i][0]=i, dp[0][j]=j
+ *
  */
 int n=1, m=1, dp[N][N];
 int main() {
