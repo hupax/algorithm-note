@@ -3,17 +3,21 @@
 //
 #include <iostream>
 using namespace std;
-int a[11]={0,0,0,0,0,0,0,2,0,2,2};
-
+int a[11];
+int dp(int n) {
+    if (n<2022) return 0;
+    int k=0;
+    while (n>0) {
+        a[++k]=n%10;
+        n/=10;
+    }
+    
+    
+}
 int l, r;
 int main() {
     cin>>l>>r;
-    if (r<2022) {
-        cout<<0;
-        return 0;
-    }
-    l=l<2022?2022:l;
-    
+    cout<<dp(l)-dp(r);
     
     
     return 0;
