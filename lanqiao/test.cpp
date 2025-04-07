@@ -7,11 +7,9 @@ using namespace std;
 
 int main() {
     int a, b;
-    char c;
-    cin>>a;
-//    gc;
-    c=gc;
-    cout<<a<<c;
+    char c='3';
+    a=c^48;
+    cout<<a+1;
     
     return 0;
 }
