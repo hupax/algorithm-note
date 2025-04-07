@@ -23,3 +23,14 @@ int main() {
     }
     cout << res;
 }
+/*
+ int main() {
+    a, n, res; // 求 a^n
+    while(n) {
+        if (n&1) res*=a;
+        n>>=1;
+        a*=a;
+    }
+ 
+ }
+ */
