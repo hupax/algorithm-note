@@ -70,7 +70,6 @@ int main() {
         cin >> x >> y >> w;
         g[x][y] = g[y][x] = w;
     }
-    
     int st;
     cin >> st;
     dijkstra(st);
