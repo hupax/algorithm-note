@@ -3,15 +3,22 @@
 //
 #include <bits/stdc++.h>
 using namespace std;
+int ans=0, a, b;
+inline int check(int x) { // 返回4进制数位和
+    int p=0;
+    while (x) {
+        p+=x%4;
+        x/=4;
+    }
+    return p;
+}
 int main() {
-    // 请在此输入您的代码
-    bitset<8> b(6);
-    for (int i=0; i<=7; i++) cout<<b[i];
-    int a=b.count();
-    cout<<endl<<a<<endl;
-    vector<int> bits;
-    int c=6;
-    while (c) bits.push_back(c%2), c/=2;
-    for (int &i:bits)cout<<i;
+    for (int i=1; i<=2024; i++) {
+        bitset<20> bit(i);
+        a=bit.count(), b=check(i);
+        if (a==b) ans++;
+    }
+    cout<<ans;
+    
     return 0;
 }
