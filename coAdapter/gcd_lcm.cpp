@@ -13,8 +13,11 @@ using namespace std;
 //{
 //    return b == 0 ? a : gcd(b, a % b);
 //}
+//inline int gcd(int a, int b) {
+//    return !b?a:(b, a%b);
+//}
 inline int gcd(int a, int b) {
-    return !b?a:(b, a%b);
+    return !b?a:gcd(b, a%b);
 }
 int main()
 {
