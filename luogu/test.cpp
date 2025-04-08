@@ -37,7 +37,6 @@ void wrc(int x) {
 int main() {
 //    int n;  enumerate
 //    read(n);
-//    cout << n;
 //    cout << flush;
     string s="asdghjl";
     cout << s.find("sd")<<s.substr(0, 3);
