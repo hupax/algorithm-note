@@ -18,24 +18,30 @@ int main() {
     }
     k=p-k;
     p--; q=p;
-    for (int i=1; i<=p; i++) b[q--]=a[i];
+    for (int i=1; i<=p; i++) res[q--]=a[i];
+    
     for (int i=1; i<=n; i++) {
-        for (int j=1; j<=p; j++) {
-            res[j]+=b[j]*2;
+        for (int j=1; j<=p; j++) res[j]<<=1;
+        
+        for (int j=1; j <= p; j++) {
             if (res[j]>=10) {
                 res[j+1]+=res[j]/10;
                 res[j]%=10;
             }
         }
+        while (res[p+1]) p++;
     }
-    while (res[p]>=10) {
-        res[p+1]=res[p]/10;
-        res[p]%=10;
-        p++;
+    if (res[k]>=5) {
+        res[k+1]++;
+        for (int i=k+1; i<=p; i++)
+            if (res[i] >= 10) {
+                res[i+1]+=res[i]/10;
+                res[i]%=10;
+            }
+        if (res[p+1]) p++;
     }
-    while (p>0&&res[p]==0) p--;
-    while (p>k+1) cout<<res[p], p--;
-    if (res[k+1]>4) cout<<res[k+1]+1;
+    if (p==k) cout<<0;
+    else while (p>k) cout<<res[p--];
     
     
     return 0;

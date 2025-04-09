@@ -17,7 +17,7 @@ void dijkstra(int s) {
     dis[s]=0;
     
     priority_queue<pair<int, int>, vector<pair<int, int>>, greater<>> q;
-    q.push({0, s});
+    q.push({0, s});w
     while (!q.empty()) {
         auto [d, u]=q.top(); q.pop();
         if (vis[u]) continue;
