@@ -23,10 +23,10 @@ int spfa(int st) {
         if (usi[u]>=n) return 0;
         for (int i=head[u]; i!=-1; i=e[i].next) {
             int v=e[i].to, w=e[i].w;
-            if (!vis[v] && dis[v]>dis[u]+w) {
+            if (dis[v]>dis[u]+w) {
                 dis[v]=dis[u]+w;
                 vis[v]=1;
-                q.push(v);
+                if (!vis[v]) q.push(v);
             }
         }
     }
