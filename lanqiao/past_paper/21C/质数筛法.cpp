@@ -28,3 +28,28 @@ int main() {
     
     return 0;
 }
+/*
+ int n, cnt, p[100005];
+ int isp[100000005]
+ 
+ int main() {
+    cin>>n;
+    isp[1]=1;
+    for (int i=2; i<=n; i++) { // 枚举所有数
+        if (!isp[i]) {
+            cnt++;
+            p[cnt]=i;
+        }
+        
+        for (int j=1; j<=cnt; j++) {
+            int x=i*p[j];
+            if (x>n) break;
+            isp=1;
+            if (i%p[j]==0) break;
+        }
+    
+    }
+ 
+ }
+ 
+ */

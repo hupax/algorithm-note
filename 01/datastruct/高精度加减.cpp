@@ -9,7 +9,7 @@
 #include <string>
 using namespace std;
 const int maxs = 505;
-// 加
+// add
 string s;
 int la, lb, lc, a[maxs], b[maxs], c[maxs];
 
@@ -52,10 +52,9 @@ int main() {
 #include <string>
 using namespace std;
 const int maxs = 10090;
-// 加
 string s1, s2;
 int la, lb, lc, a[maxs], b[maxs], c[maxs];
-
+// sub
 int init1(int k[], string s) {
     int l = s.size();
     for (int i = 0; i < l; i++) k[i] = s[l - i - 1] - '0';

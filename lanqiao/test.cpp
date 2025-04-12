@@ -1,52 +1,81 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <string>
 using namespace std;
 
-const int N=6;
-int a[N][N];       // 棋盘，0/1 表示子，-1 表示空
-int ans=0;
-
-int dx[4]={0, 1, 1, -1};  // 横、竖、主对角、副对角
-int dy[4]={1, 0, 1, 1};
-
-int check(int x, int y, int f) {
-    for (int d=0; d < 4; d++) {
-        int cnt=1;
-        for (int i=1; i < 5; i++) {
-            int nx=x+dx[d]*i, ny=y+dy[d]*i;
-            if (nx < 1 || nx > 5 || ny < 1 || ny > 5) break;
-            if (a[nx][ny] == f) cnt++;
-            else break;
+// 高精度减法：a - b
+string subtract(string &a, string &b) {
+    int la=a.size(), lb=b.size();
+    int borrow=0;
+    string res="";
+    
+    for (int i=0; i < la; i++) {
+        int x=a[la-1-i]^48;  // 当前位a
+        int y=(i < lb) ? b[lb-1-i]^48 : 0;  // 当前位b
+        
+        int diff=x-y-borrow;
+        if (diff < 0) {
+            diff+=10;
+            borrow=1;
         }
-        for (int i=1; i < 5; i++) {
-            int nx=x-dx[d]*i, ny=y-dy[d]*i;
-            if (nx < 1 || nx > 5 || ny < 1 || ny > 5) break;
-            if (a[nx][ny] == f) cnt++;
-            else break;
+        else {
+            borrow=0;
         }
-        if (cnt >= 5) return 1;
+        res=(diff^48)+res;  // 拼接每一位的结果
     }
-    return 0;
+    
+    // 去掉前导零
+    int start=0;
+    while (start < res.size() && res[start] == '0') start++;
+    return start == res.size() ? "0" : res.substr(start);
 }
 
-void dfs(int stp) {
-    if (stp == 26) {
-        ans++;
-        return;
+// 用于去掉字符串中的前导零
+void init(string &res) {
+    int i=0;
+    while (i < res.size() && res[i] == '0') {
+        i++;
     }
-    int f=stp&1;  // 黑白交替，0->黑, 1->白
-    for (int i=1; i <= 5; i++) {
-        for (int j=1; j <= 5; j++) {
-            if (a[i][j] != -1) continue;
-            a[i][j]=f;
-            if (!check(i, j, f)) dfs(stp+1);
-            a[i][j]=-1;
+    res=res.substr(i);
+    if (res.empty()) res="0";  // 如果去掉前导零后为空，表示是零
+}
+
+// 高精度除法：a / b
+string div(string a, string b) {
+    if (a == "0") return "0";      // 被除数为0，商为0
+    if (b == "0") return "ERROR";  // 除数为0，返回错误
+    
+    int la=a.size(), lb=b.size();
+    string res="", cur="";     // 存储商和当前部分余数
+    int q=0;  // 商
+    
+    for (int i=0; i < la; i++) {
+        cur+=a[i];  // 当前部分添加新的一位
+        
+        q=0;  // 初始商为0
+        
+        // 找到当前部分能被除数除多少次
+        while (cur.size() > lb || (cur.size() == lb && cur >= b)) {
+            cur=subtract(cur, b);  // 用高精度减法操作
+            q++;
         }
+        
+        // 如果商为零且结果为空，则跳过该位（避免前导零）
+        if (res.empty() && q == 0) continue;
+        
+        // 将商转换为字符并加入结果
+        res+=(q+'0');
     }
+    
+    init(res);  // 去除结果的前导零
+    return res;
 }
 
 int main() {
-    memset(a, -1, sizeof(a));
-    dfs(1);  // 第一步为黑棋（0）
-    cout << ans << endl;
+    string a, b;
+    cin >> a >> b;
+    
+    string result=div(a, b);
+    cout << result << endl;
+    
     return 0;
 }
