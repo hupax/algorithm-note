@@ -3,13 +3,16 @@
 //
 #include <iostream>
 #include <bits/stdc++.h>
+#define gc getchar()
 using namespace std;
 int main()
 {
-    vector<int> vector_1;
-    vector_1.push_back(2);
-    cout << vector_1.front() << endl;
-    cout << "Hey, you, I'm Zre! Oh, and Hello World!" << endl;
+    //vector<int> vector_1;
+    //vector_1.push_back(2);
+    //cout << vector_1.front() << endl;
+    //cout << "Hey, you, I'm Zre! Oh, and Hello World!" << endl;
+    char c=gc;
+    cout << c << endl;
     cout << __VERSION__ << endl;
 }
 

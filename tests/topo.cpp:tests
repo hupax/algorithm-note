@@ -1,0 +1,5 @@
+[
+	{
+		"test": "\t{ \"keys\": [\"super+ctrl+p\"], \"command\": \"prompt_select_workspace\" },\n"
+	}
+]
